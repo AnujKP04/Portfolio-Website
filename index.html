@@ -14,19 +14,19 @@
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-
-        #about,#Internship, #project, #contact
-        {
+        #about,
+        #Internship,
+        #project,
+        #contact {
             scroll-margin-top: 80px;
         }
+
         .navbar-nav .nav-link:hover {
             color: yellow !important;
             transition: color 1s !important;
             font-size: 22px;
 
         }
-
-
 
         .typing-container {
             width: 100%;
@@ -100,7 +100,7 @@
 
         .large-text {
             padding-top: 50px;
-            font-size: 8rem;
+            font-size: 10rem;
             z-index: 1;
         }
 
@@ -153,6 +153,53 @@
             width: 100%;
             height: 270px;
         }
+
+        .img-class img:hover {
+            border-color: black !important;
+        }
+
+        .icon-class i:hover {
+            background-color: rgb(112, 112, 112) !important;
+
+        }
+
+        /* ------------------------------------- */
+
+        .image-container {
+            min-height: 550px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .responsive-img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        @media (max-width: 767px) {
+            .image-container {
+                min-height: auto;
+                height: auto;
+                padding-top: 20px;
+                /* Add some padding if needed */
+                padding-bottom: 20px;
+            }
+
+            .responsive-img {
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+            }
+        }
+
+        /* ---------------------------------- */
+        @media (max-width:992px) {
+            .remove-space {
+                height: 100px !important;
+                margin-top: 0 !important;
+            }
+        }
     </style>
 </head>
 
@@ -196,15 +243,16 @@
 
         <!-- -------------------------------------------------------------part1--------------------------------------------------- -->
 
-        <div class="container  container-fluid ps-5 pe-5 bg-dark" style="min-height: 600px; margin-top: 80px; ">
+        <div class="container  container-fluid ps-5 pe-5 pb-5 bg-dark" style="min-height: 500px; margin-top: 80px; ">
 
             <div class="row ">
-                <div class=" col-lg-6 col-md-12 mt-5 order-lg-2 justify-content-center" style="min-height: 550px; ">
-                    <img src="img/office-boy.webp " height="100%" width="100%" alt="">
+                <div
+                    class="col-lg-6 col-md-12 mt-5 order-lg-2 d-flex justify-content-center align-items-center image-container ">
+                    <img src="img/office-boy.webp" class="img-fluid" alt="">
                 </div>
 
-                <div class=" col-lg-6 col-md-12 d-flex flex-column  justify-content-center order-lg-1"
-                    style=" min-height: 600px;">
+                <div class=" col-lg-6 col-md-12 mt-5 d-flex flex-column  justify-content-center order-lg-1 remove-space"
+                    style=" min-height: 400px;">
                     <p class="fw-bold text-warning fs-5">HELLO !</p>
                     <H1 class="fw-bolder text-white" style="font-size: 3.8vmax;">I'm <span
                             style="color: rgb(81, 66, 245);">Anujkumar Prajapati</span> </H1>
@@ -223,7 +271,7 @@
         </div>
 
         <!-- ------------------------------------------------------------------Part2------------------------------------------------------------------- -->
-         
+
         <div class="container-fluid" style="background-color: #373737; " id="about">
 
 
@@ -231,9 +279,9 @@
                 <div class="row text-white">
                     <div class="col-lg-6 col-12 mt-5">
                         <div class="row text-white gap-4">
-                            <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
-                                <img class="border border-2 rounded-circle img-fluid" src="img/Anuj-img.jpg" alt=""
-                                    style="max-width: 200px;">
+                            <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center img-class">
+                                <img class="border border-2 rounded-circle img-fluid " src="img/Anuj-img.jpg" alt=""
+                                    style="max-width: 200px; ">
                             </div>
                             <div
                                 class="col-lg-7 col-md-6 col-sm-12 fs-5 d-flex flex-column justify-content-center opacity-75">
@@ -294,7 +342,12 @@
 
                     <div class="col-lg-6 col-12 mt-5">
                         <h1 class="fw-bolder mb-5 " style="font-size: 3.5vmax; ">About Me</h1>
-                        <p class="opacity-75" style="text-align: justify; letter-spacing: 1px; line-height: 25px;">With a strong foundation in programming, problem-solving, and software development accompanied by a bachelor's degree in engineering. With hands-on experience in various projects and internships, I have developed skills in Java, C, C++ , HTML/CSS , Bootstrap and MySQL. I’m excited to use my skills in a challenging environment, contributing to projects while continuing to grow as a software engineer.</p>
+                        <p class="opacity-75" style="text-align: justify; letter-spacing: 1px; line-height: 25px;">With
+                            a strong foundation in programming, problem-solving, and software development accompanied by
+                            a bachelor's degree in engineering. With hands-on experience in various projects and
+                            internships, I have developed skills in Java, C, C++ , HTML/CSS , Bootstrap and MySQL. I’m
+                            excited to use my skills in a challenging environment, contributing to projects while
+                            continuing to grow as a software engineer.</p>
 
                         <div class="row mb-3  " style="margin-top: 70px;">
                             <div class="col-lg-3 col-5 fw-bold">Profile:</div>
@@ -334,280 +387,316 @@
                 </div>
             </div>
         </div>
-    
 
-    <!-- ---------------------------------------------------------Part 3------------------------------------------------------------------------- -->
-    <div class="container-fluid bg-dark pt-5 " id="Internship">
-        <div class="container ">
-            <div class="bg-dark mb-5">
-                <h1 class="text-white text-center">Internship</h1>
-                <div
-                    style="height: 6px; background-image: linear-gradient(270deg,white,rgb(232, 22, 57),aqua,rgb(225, 37, 68),white);">
-                </div>
-            </div>
 
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-12 mb-4 text-white">
-                    <div class="p-4 pt-4 pe-5" style="background-color: #373737; min-height: 630px;">
-                        <h3 class="text-warning mb-3 fw-bolder">Aug-2021</h3>
-                        <h3 class="mb-3">Python for AI & ML</h3>
-                        <h5 class="opacity-50 mt-2 mb-4 fst-italic">Elite Techno Groups</h5>
-
-                        <p style="text-align: justify;" class="opacity-50">Elite Techno Groups work towards helping
-                            students embrace the
-                            industry
-                            requirements by exposing them to real world scenarios and providing
-                            them with the impetus to apply their skills and knowledge to tackle the
-                            issues presented.</p>
-                        <ul class="opacity-50" style="text-align: justify;">
-                            <li>Developed a user-friendly Inventory Management System (IMS) implemented features for adding, deleting, and updating inventory items.
-                            </li>
-                            <li class="mt-3 mb-3">Analyzed and visualized data from CSV files to extract insights and generate reports. Performed data cleaning and preprocessing using Pandas and Numpy, and created visualizations with Matplotlib to present findings.
-                            </li>
-                            <li>Skills gained- 
-                                <ul><li>Handled missing data and cleaned datasets using Pandas.</li>
-                                <li>Performed basic analysis to find trends and patterns.</li>
-                                    <li>Created simple charts and graphs with Matplotlib.</li></ul>
-                            </li>
-                        </ul>
-
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-12 mb-4 text-white" >
-                    <div class="p-4 pt-4 pe-5" style="background-color: #373737; min-height: 630px;">
-                        <h3 class="text-warning mb-3 fw-bolder">Dec-2023-Present</h3>
-                        <h3 class="mb-3">FullStack Java</h3>
-                        <h5 class="opacity-50 mt-2 mb-4 fst-italic">Giri's Tech Hub</h5>
-
-                        <p style="text-align: justify; padding-bottom: 20px;" class="opacity-50">Giri's Tech Hub work
-                            towards provide the
-                            right candidate in the industry with good technical skills, the desired knowledge and the
-                            ability to make a successful career in the software industry.</p>
-
-                        <ul class="opacity-50" style="text-align: justify;">
-                            <li>Designed and implemented web pages using HTML, CSS, and Bootstrap: Focused on creating responsive designs and ensuring cross-browser compatibility to enhance user experience across different devices and platforms.
-                            </li>
-                            <li class="mb-3 mt-3">Built a strong foundation in Java, focusing on object-oriented programming principles and writing maintainable code with best practices.
-
-                            </li>
-                            <li>Designed MySQL database schemas and implemented CRUD operations, optimizing queries for efficient data management.
-                            </li>
-                            <li class="mt-3">skills gained-
-                                <ul>
-                                    <li> Gained an understanding of both front-end and back-end technologies.</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ----------------------------------------------------------------Part-4--------------------------------------------------------------------- -->
-    <div class="container-fluid bg-dark pt-5 " id="Internship">
-        <div class="container ">
-            <div class="bg-dark mb-5">
-                <h1 class="text-white text-center">Education</h1>
-                <div
-                    style="height: 6px; background-image: linear-gradient(270deg,white,rgb(232, 22, 57),aqua,rgb(225, 37, 68),white);">
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-12 mb-4 text-white">
-                    <div class="p-4 pt-4 pe-5" style="background-color: #373737; min-height: 250px;">
-                        <h3 class="text-warning mb-3 fw-bolder">2019-2023</h3>
-                        <h3 class="mb-3">Bachelor of Engineering</h3>
-                        <h5 class="opacity-50 mt-2 mb-4 fst-italic" style="letter-spacing: 2px;">Dnyanshree Institute of
-                            Engineering and Technology, Satara</h5>
-
-                        <p class="opacity-50 " style="font-size: 17px;">Grade: First Class with Distiction (CSE)</p>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-12 mb-4 text-white">
-                    <div class="p-4 pt-4 pe-5" style="background-color: #373737; min-height: 260px;">
-                        <h3 class="text-warning mb-3 fw-bolder">2018-2019</h3>
-                        <h3 class="mb-3">Higher Secondary School</h3>
-                        <h5 class="opacity-50 mt-2 mb-4 fst-italic" style="letter-spacing: 2px;">Yashwantrao Chavan
-                            Institute of Science Satara, Satara </h5>
-                        <p class="opacity-50 " style="font-size: 17px;">Grade: First Class (Science)</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ____________________________________________________________part-5_____________________________________________________________________ -->
-
-    <div class="container-fluid" style="background-color:#373737;">
-        <div class="container d-flex justify-content-center align-items-center" style="height: 200px; ">
-            <a href="https://drive.google.com/file/d/11XKwcD8cy37E9ogVrXkGsP806M4gD0QA/view?usp=sharing"
-                class="btn btn-custom rounded-5 p-2 fs-3 fw-bold bg-warning  text-white"
-                style="width: 200px;">RESUME</a>
-        </div>
-    </div>
-
-    <!-- -------------------------------------------------------------Part 6------------------------------------------------------------------------------- -->
-    <div class="container-fluid bg-dark" id="project">
-        <div class="container " style="padding-bottom: 100px;">
-            <div class="container1 text-center py-5 text-white">
-                <h1 class="display-1 fw-bold  position-absolute top-50 start-50 translate-middle large-text"
-                    style="opacity: 10%; ">Projects</h1>
-                <h2 class="fw-bold position-relative display-4" style="letter-spacing: 2px;">Projects</h2>
-                <p class="position-relative fst-italic" id="first-project">Below are the projects on Java, Python, AI &
-                    ML, C language and HTML & CSS.</p>
-            </div>
-
-            <div class="row mt-4 ">
-                <div class="col-lg-4 col-md-6 col-12 text-white card-group gap-3 p-3">
-                    <div class=" card bg-dark text-white">
-                        <div class="zoom-container img-card1">
-                            <img src="img/explore offline.jpg" alt="">
-                        </div>
-
-                        <div class="card-body pt-2">
-                            <h3 class="pb-3">Explore Offline Tourist Guide Map Based App</h3>
-                            <p style="text-align: justify;">Explore Offline (E/O) is a free Android app for Mahabaleshwar travelers, providing detailed information on attractions, localities, and natural beauty, including insights not found on standard maps. It helps tourists make informed decisions during their visit.</p>
-                        </div>
+        <!-- ---------------------------------------------------------Part 3------------------------------------------------------------------------- -->
+        <div class="container-fluid bg-dark pt-5 " id="Internship">
+            <div class="container ">
+                <div class="bg-dark mb-5">
+                    <h1 class="text-white text-center">Internship</h1>
+                    <div
+                        style="height: 6px; background-image: linear-gradient(270deg,white,rgb(232, 22, 57),aqua,rgb(225, 37, 68),white);">
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-6 col-12 text-white card-group gap-3 p-3">
-                    <div class=" card bg-dark text-white">
-                        <div class="zoom-container img-card1">
-                            <img src="img/Data-Analytics1.jpg" alt="">
-                        </div>
-                        <div class="card-body pt-2">
-                            <h3 class="pb-3">
-                                Data Analysis using Python Project for Beginners</h3>
-                            <p style="text-align: justify;">This project involves querying a CSV file to extract relevant data based on specific questions, helping to identify and organize the needed information.
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-12 mb-4 text-white">
+                        <div class="p-4 pt-4 pe-5" style="background-color: #373737; min-height: 630px;">
+                            <h3 class="text-warning mb-3 fw-bolder">Aug-2021</h3>
+                            <h3 class="mb-3">Python for AI & ML</h3>
+                            <h5 class="opacity-50 mt-2 mb-4 fst-italic">Elite Techno Groups</h5>
 
+                            <p style="text-align: justify;" class="opacity-50">Elite Techno Groups work towards helping
+                                students embrace the
+                                industry
+                                requirements by exposing them to real world scenarios and providing
+                                them with the impetus to apply their skills and knowledge to tackle the
+                                issues presented.</p>
+                            <ul class="opacity-50" style="text-align: justify;">
+                                <li>Developed a user-friendly Inventory Management System (IMS) implemented features for
+                                    adding, deleting, and updating inventory items.
+                                </li>
+                                <li class="mt-3 mb-3">Analyzed and visualized data from CSV files to extract insights
+                                    and generate reports. Performed data cleaning and preprocessing using Pandas and
+                                    Numpy, and created visualizations with Matplotlib to present findings.
+                                </li>
+                                <li>Skills gained-
+                                    <ul>
+                                        <li>Handled missing data and cleaned datasets using Pandas.</li>
+                                        <li>Performed basic analysis to find trends and patterns.</li>
+                                        <li>Created simple charts and graphs with Matplotlib.</li>
+                                    </ul>
+                                </li>
+                            </ul>
 
-
-
-
-
-
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 col-12 text-white card-group gap-3 p-3">
-                    <div class=" card bg-dark text-white">
-                        <div class="zoom-container img-card1">
-                            <img src="img/Hospital-Management-System.jpg" alt="">
-                        </div>
-                        <div class="card-body pt-2">
-                            <h3 class="pb-3">Hospital Management System </h3>
-                            <p style="text-align: justify;">The Hospital Management System is a console-based project developed in C language. It manages various hospital operations, including patient records, billing, Users can add or update patient information, manage billing details.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 col-12 text-white card-group gap-3  p-3">
-                    <div class=" card bg-dark text-white">
-                        <div class="zoom-container img-card1">
-                            <img src="img/sms.jpg" alt="">
-                        </div>
-                        <div class="card-body pt-2">
-                            <h3 class="pb-3">School Management System</h3>
-                            <p style="text-align: justify;">The School Management System is a console-based project developed in C language. It manages key school operations, including student records, teacher information, class schedules. The system allows college administrators to add, update, and delete student and teacher details, manage class schedules.</p>
                         </div>
                     </div>
-                </div>
+                    <div class="col-lg-6 col-md-6 col-12 mb-4 text-white">
+                        <div class="p-4 pt-4 pe-5" style="background-color: #373737; min-height: 630px;">
+                            <h3 class="text-warning mb-3 fw-bolder">Dec-2023-Present</h3>
+                            <h3 class="mb-3">FullStack Java</h3>
+                            <h5 class="opacity-50 mt-2 mb-4 fst-italic">Giri's Tech Hub</h5>
 
-                <div class="col-lg-4 col-md-6 col-12 text-white card-group gap-3 p-3">
-                    <div class=" card bg-dark text-white">
-                        <div class="zoom-container img-card1">
-                            <img src="img/ims.jpeg" alt="">
-                        </div>
-                        <div class="card-body pt-2">
-                            <h3 class="pb-3">Inventory Management System</h3>
-                            <p style="text-align: justify;">The Inventory Management System helps users easily manage their inventory. It allows adding, deleting, and updating inventory items, making it simple to keep track of stock and ensure everything is up to date. </p>
-                        </div>
-                    </div>
-                </div>
+                            <p style="text-align: justify; padding-bottom: 20px;" class="opacity-50">Giri's Tech Hub
+                                work
+                                towards provide the
+                                right candidate in the industry with good technical skills, the desired knowledge and
+                                the
+                                ability to make a successful career in the software industry.</p>
 
-                <div class="col-lg-4 col-md-6 col-12 text-white card-group gap-3 p-3">
-                    <div class=" card bg-dark text-white">
-                        <div class="zoom-container img-card1">
-                            <img src="img/portfolio.png" alt="">
-                        </div>
-                        <div class="card-body pt-2">
-                            <h3 class="pb-3">Portfolio Website</h3>
-                            <p style="text-align: justify;"> Portfolio website that showcasing skills, projects, and internships. The site will include an "About Me" page, a GitHub link, a resume, and contact information. The goal is to build a professional online presence.</p>
+                            <ul class="opacity-50" style="text-align: justify;">
+                                <li>Designed and implemented web pages using HTML, CSS, and Bootstrap: Focused on
+                                    creating responsive designs and ensuring cross-browser compatibility to enhance user
+                                    experience across different devices and platforms.
+                                </li>
+                                <li class="mb-3 mt-3">Built a strong foundation in Java, focusing on object-oriented
+                                    programming principles and writing maintainable code with best practices.
+
+                                </li>
+                                <li>Designed MySQL database schemas and implemented CRUD operations, optimizing queries
+                                    for efficient data management.
+                                </li>
+                                <li class="mt-3">skills gained-
+                                    <ul>
+                                        <li> Gained an understanding of both front-end and back-end technologies.</li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- --------------------------------------------------------------------part 7------------------------------------------------------------------------ -->
 
-    <div class="container-fluid" style="background-color:#373737;">
-        <div class="container d-flex flex-column justify-content-center align-items-center" style="height: 300px; ">
-            <h1 class="mb-5 fw-bolder text-white">More projects on <span
-                    class="text-warning text-decoration-underline">GITHUB</span></h1>
-            <a href="https://github.com/AnujKP04"
-                class="btn btn-custom rounded-5 p-2 fs-3 fw-bold bg-warning  text-white"
-                style="width: 200px;">GITHUB</a>
+        <!-- ----------------------------------------------------------------Part-4--------------------------------------------------------------------- -->
+        <div class="container-fluid bg-dark pt-5 " id="Internship">
+            <div class="container ">
+                <div class="bg-dark mb-5">
+                    <h1 class="text-white text-center">Education</h1>
+                    <div
+                        style="height: 6px; background-image: linear-gradient(270deg,white,rgb(232, 22, 57),aqua,rgb(225, 37, 68),white);">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-12 mb-4 text-white">
+                        <div class="p-4 pt-4 pe-5" style="background-color: #373737; min-height: 250px;">
+                            <h3 class="text-warning mb-3 fw-bolder">2019-2023</h3>
+                            <h3 class="mb-3">Bachelor of Engineering</h3>
+                            <h5 class="opacity-50 mt-2 mb-4 fst-italic" style="letter-spacing: 2px;">Dnyanshree
+                                Institute of
+                                Engineering and Technology, Satara</h5>
+
+                            <p class="opacity-50 " style="font-size: 17px;">Grade: First Class with Distiction (CSE)</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-12 mb-4 text-white">
+                        <div class="p-4 pt-4 pe-5" style="background-color: #373737; min-height: 260px;">
+                            <h3 class="text-warning mb-3 fw-bolder">2018-2019</h3>
+                            <h3 class="mb-3">Higher Secondary School</h3>
+                            <h5 class="opacity-50 mt-2 mb-4 fst-italic" style="letter-spacing: 2px;">Yashwantrao Chavan
+                                Institute of Science Satara, Satara </h5>
+                            <p class="opacity-50 " style="font-size: 17px;">Grade: First Class (Science)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+        <!-- ____________________________________________________________part-5_____________________________________________________________________ -->
 
-    <!-- -----------------------------------------------------------------------part 8----------------------------------------------------------------------------- -->
-    <div class="container-fluid bg-dark pb-5" style=" min-height: 600px;" id="contact">
-        <div class="container">
-            <div class="container1 text-center py-5 text-white">
-                <h1 class="display-1 fw-bold  position-absolute top-50 start-50 translate-middle large-text"
-                    style="opacity: 10%; letter-spacing: 3px; ">Contact</h1>
-                <h2 class="fw-bold position-relative display-4 " style="letter-spacing: 2px;">Contact Me</h2>
-                <p class="fs-5 fst-italic opacity-75">Below are the details to reach out to me!</p>
+        <div class="container-fluid" style="background-color:#373737;">
+            <div class="container d-flex justify-content-center align-items-center" style="height: 200px; ">
+                <a href="https://drive.google.com/file/d/11XKwcD8cy37E9ogVrXkGsP806M4gD0QA/view?usp=sharing"
+                    class="btn btn-custom rounded-5 p-2 fs-3 fw-bold bg-warning  text-white"
+                    style="width: 200px;">RESUME</a>
             </div>
-            <div class="row justify-content-center gap-5 align-items-center text-center " style=" margin-top: 40px;">
-
-                <div class=" text-white col-lg-2 col-md-5 col-sm-5 col-5 ">
-                    <i class="text-warning fa-solid fa-location-dot fs-2 rounded-circle p-4 mb-4" style="background-color: #373737;"></i>
-                    <h5>Address</h5>
-                    <p>Pune, Maharashtra</p>
-                </div>
-
-                <div class="text-white col-lg-2 col-md-5 col-sm-5 col-5">
-                    <i class="text-primary  fa-solid fa-phone fs-2 rounded-circle p-4 mb-4" style="background-color: #373737;"></i>
-                    <h5>Contact</h5>
-                    <p>+91 9309805345</p>
-                </div>
-
-                <div class=" text-white col-lg-2 col-md-5 col-sm-5 col-5">
-                    <a href="mailto:anuj.kp04@gmail.com" class="text-decoration-none text-white">
-                    <i class="text-danger fa-solid fa-envelope fs-2 rounded-circle p-4 mb-4 " style="background-color: #373737;"></i>
-                    <h5>Email</h5>
-                    anuj.kp04@gmail.com</a> 
-                </div>
-
-                <div class=" text-white col-lg-2 col-md-5 col-sm-5 col-5 ">
-                    <a class="text-decoration-none text-white" href="https://www.hackerrank.com/profile/ankitkumarkp1999">
-                    <i class="text-success fa-brands fa-hackerrank fs-2 rounded-circle p-4 mb-4 " style="background-color: #373737;"></i>
-                    <h5 >HackerRank</h5>
-                    Click Here -></a>
-                </div>
-            </div>
-
-            <div class=" text-info d-flex flex-column justify-content-center align-items-center gap-3 mt-5">
-                <h5 class=" text-white">Find me on</h5>
-                <div class=" d-flex gap-3">
-                    <i class="fa-brands fa-youtube fs-4 rounded-circle p-3  " style="background-color: #373737; cursor: pointer;"></i>
-                    <i class="fa-brands fa-linkedin fs-4 rounded-circle p-3" style="background-color: #373737; cursor: pointer;"></i>
-                    <i class="fa-brands fa-facebook fs-4 rounded-circle p-3" style="background-color: #373737; cursor: pointer;"></i>
-                    <i class="fa-brands fa-square-instagram fs-4 rounded-circle p-3" style="background-color: #373737; cursor: pointer;"></i>
-                </div>
-            </div>
-
-            <footer class="text-white d-flex justify-content-center align-items-center" style="margin-top: 70px; margin-bottom: 40px;">
-                <h5 class="opacity-50 " style="text-align: center;">Copyright &copy:2024 All rights reserved | This template is made by Anujkumar Prajapati</h5>
-            </footer>
         </div>
-    </div>
+
+        <!-- -------------------------------------------------------------Part 6------------------------------------------------------------------------------- -->
+        <div class="container-fluid bg-dark" id="project">
+            <div class="container " style="padding-bottom: 100px;">
+                <div class="container1 text-center py-5 text-white">
+                    <h1 class="display-1 fw-bold  position-absolute top-50 start-50 translate-middle large-text"
+                        style="opacity: 10%; ">Projects</h1>
+                    <h2 class="fw-bold position-relative display-4" style="letter-spacing: 2px;">Projects</h2>
+                    <p class="position-relative fst-italic" id="first-project">Below are the projects on Java, Python,
+                        AI &
+                        ML, C language and HTML & CSS.</p>
+                </div>
+
+                <div class="row mt-4 ">
+                    <div class="col-lg-4 col-md-6 col-12 text-white card-group gap-3 p-3 ">
+                        <div class=" card bg-dark text-white border border-1 border-secondary">
+                            <div class="zoom-container img-card1 ">
+                                <img src="img/explore offline.jpg" alt="" class="rounded-1">
+                            </div>
+
+                            <div class="card-body pt-2">
+                                <h3 class="pb-3">Explore Offline Tourist Guide Map Based App</h3>
+                                <p style="text-align: justify;">Explore Offline (E/O) is a free Android app for
+                                    Mahabaleshwar travelers, providing detailed information on attractions, localities,
+                                    and natural beauty, including insights not found on standard maps. It helps tourists
+                                    make informed decisions during their visit.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-12 text-white card-group gap-3 p-3">
+                        <div class=" card bg-dark text-white border-1 border-secondary">
+                            <div class="zoom-container img-card1">
+                                <img src="img/Data-Analytics1.jpg" alt="" class="rounded-1">
+                            </div>
+                            <div class="card-body pt-2">
+                                <h3 class="pb-3">
+                                    Data Analysis using Python Project for Beginners</h3>
+                                <p style="text-align: justify;">This project involves querying a CSV file to extract
+                                    relevant data based on specific questions, helping to identify and organize the
+                                    needed information.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-12 text-white card-group gap-3 p-3">
+                        <div class=" card bg-dark text-white border-1 border-secondary">
+                            <div class="zoom-container img-card1">
+                                <img src="img/Hospital-Management-System.jpg" alt="" class="rounded-1">
+                            </div>
+                            <div class="card-body pt-2">
+                                <h3 class="pb-3">Hospital Management System </h3>
+                                <p style="text-align: justify;">The Hospital Management System is a console-based
+                                    project developed in C language. It manages various hospital operations, including
+                                    patient records, billing, Users can add or update patient information, manage
+                                    billing details.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-12 text-white card-group gap-3  p-3">
+                        <div class=" card bg-dark text-white border-1 border-secondary">
+                            <div class="zoom-container img-card1">
+                                <img src="img/sms.jpg" alt="" class="rounded-1">
+                            </div>
+                            <div class="card-body pt-2">
+                                <h3 class="pb-3">School Management System</h3>
+                                <p style="text-align: justify;">The School Management System is a console-based project
+                                    developed in C language. It manages key school operations, including student
+                                    records, teacher information, class schedules. The system allows college
+                                    administrators to add, update, and delete student and teacher details, manage class
+                                    schedules.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-12 text-white card-group gap-3 p-3">
+                        <div class=" card bg-dark text-white border-1 border-secondary">
+                            <div class="zoom-container img-card1">
+                                <img src="img/ims.jpeg" alt="" class="rounded-1">
+                            </div>
+                            <div class="card-body pt-2">
+                                <h3 class="pb-3">Inventory Management System</h3>
+                                <p style="text-align: justify;">The Inventory Management System helps users easily
+                                    manage their inventory. It allows adding, deleting, and updating inventory items,
+                                    making it simple to keep track of stock and ensure everything is up to date. </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-12 text-white card-group gap-3 p-3">
+                        <div class=" card bg-dark text-white border-1 border-secondary">
+                            <div class="zoom-container img-card1">
+                                <img src="img/portfolio.png" alt="" class="rounded-1">
+                            </div>
+                            <div class="card-body pt-2">
+                                <h3 class="pb-3">Portfolio Website</h3>
+                                <p style="text-align: justify;"> Portfolio website that showcasing skills, projects, and
+                                    internships. The site will include an "About Me" page, a GitHub link, a resume, and
+                                    contact information. The goal is to build a professional online presence.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- --------------------------------------------------------------------part 7------------------------------------------------------------------------ -->
+
+        <div class="container-fluid" style="background-color:#373737;">
+            <div class="container d-flex flex-column justify-content-center align-items-center" style="height: 300px; ">
+                <h1 class="mb-5 fw-bolder text-white">More projects on <span
+                        class="text-warning text-decoration-underline">GITHUB</span></h1>
+                <a href="https://github.com/AnujKP04"
+                    class="btn btn-custom rounded-5 p-2 fs-3 fw-bold bg-warning  text-white"
+                    style="width: 200px;">GITHUB</a>
+            </div>
+        </div>
+
+        <!-- -----------------------------------------------------------------------part 8----------------------------------------------------------------------------- -->
+        <div class="container-fluid bg-dark pb-5" style=" min-height: 600px;" id="contact">
+            <div class="container">
+                <div class="container1 text-center py-5 text-white">
+                    <h1 class="display-1 fw-bold  position-absolute top-50 start-50 translate-middle large-text"
+                        style="opacity: 10%; letter-spacing: 3px; ">Contact</h1>
+                    <h2 class="fw-bold position-relative display-4 " style="letter-spacing: 2px;">Contact Me</h2>
+                    <p class="fs-5 fst-italic opacity-75">Below are the details to reach out to me!</p>
+                </div>
+                <div class="row justify-content-center gap-5 align-items-center text-center "
+                    style=" margin-top: 40px;">
+
+                    <div class=" text-white col-lg-2 col-md-5 col-sm-5 col-5 ">
+                        <i class="text-warning fa-solid fa-location-dot fs-2 rounded-circle p-4 mb-4"
+                            style="background-color: #373737;"></i>
+                        <h5>Address</h5>
+                        <p>Pune, Maharashtra</p>
+                    </div>
+
+                    <div class="text-white col-lg-2 col-md-5 col-sm-5 col-5">
+                        <i class="text-primary  fa-solid fa-phone fs-2 rounded-circle p-4 mb-4"
+                            style="background-color: #373737;"></i>
+                        <h5>Contact</h5>
+                        <p>+91 9309805345</p>
+                    </div>
+
+                    <div class=" text-white col-lg-2 col-md-5 col-sm-5 col-5">
+                        <a href="mailto:anuj.kp04@gmail.com" class="text-decoration-none text-white">
+                            <i class="text-danger fa-solid fa-envelope fs-2 rounded-circle p-4 mb-4 "
+                                style="background-color: #373737;"></i>
+                            <h5>Email</h5>
+                            anuj.kp04@gmail.com
+                        </a>
+                    </div>
+
+                    <div class=" text-white col-lg-2 col-md-5 col-sm-5 col-5 ">
+                        <a class="text-decoration-none text-white"
+                            href="https://www.hackerrank.com/profile/ankitkumarkp1999">
+                            <i class="text-success fa-brands fa-hackerrank fs-2 rounded-circle p-4 mb-4 "
+                                style="background-color: #373737;"></i>
+                            <h5>HackerRank</h5>
+                            Click Here ->
+                        </a>
+                    </div>
+                </div>
+
+                <div class=" text-info d-flex flex-column justify-content-center align-items-center gap-3 mt-5">
+                    <h5 class=" text-white">Find me on</h5>
+                    <div class=" d-flex gap-3 icon-class">
+                        <i class="fa-brands fa-youtube fs-4 rounded-circle p-3  "
+                            style="background-color: #373737; cursor: pointer;"></i>
+                        <i class="fa-brands fa-linkedin fs-4 rounded-circle p-3"
+                            style="background-color: #373737; cursor: pointer;"></i>
+                        <i class="fa-brands fa-facebook fs-4 rounded-circle p-3"
+                            style="background-color: #373737; cursor: pointer;"></i>
+                        <i class="fa-brands fa-square-instagram fs-4 rounded-circle p-3"
+                            style="background-color: #373737; cursor: pointer;"></i>
+                    </div>
+                </div>
+
+                <footer class="text-white d-flex justify-content-center align-items-center"
+                    style="margin-top: 70px; margin-bottom: 40px;">
+                    <h5 class="opacity-50 " style="text-align: center;">Copyright &copy:2024 All rights reserved | This
+                        template is made by Anujkumar Prajapati</h5>
+                </footer>
+            </div>
+        </div>
 
 
     </div>
