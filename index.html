@@ -1,711 +1,1463 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-        </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anujkumar Prajapati | Java Backend Developer</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
     <style>
-        #about,
-        #Internship,
-        #project,
-        #contact {
-            scroll-margin-top: 80px;
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --blue: #00d4ff;
+        --green: #39ff14;
+        --bg: #03050b;
+        --card: rgba(10, 20, 35, 0.6);
+        --border: rgba(0, 212, 255, 0.2);
+      }
+
+      body {
+        background: var(--bg);
+        font-family: "Segoe UI", "Poppins", system-ui, sans-serif;
+        color: #eef5ff;
+        overflow-x: hidden;
+      }
+
+      /* ===== STARFIELD ===== */
+      .space-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        pointer-events: none;
+      }
+      .star {
+        position: absolute;
+        background: #fff;
+        border-radius: 50%;
+        animation: starGlow 3s infinite alternate;
+      }
+      @keyframes starGlow {
+        0% {
+          opacity: 0.1;
+          transform: scale(1);
         }
-
-        .navbar-nav .nav-link:hover {
-            color: yellow !important;
-            transition: color 1s !important;
-            font-size: 22px;
-
+        100% {
+          opacity: 0.9;
+          transform: scale(1.4);
         }
-
-        .typing-container {
-            width: 100%;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            position: relative;
+      }
+      .orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.15;
+        animation: orbFloat 22s infinite alternate ease-in-out;
+      }
+      @keyframes orbFloat {
+        0% {
+          transform: translate(0, 0);
         }
-
-        .typing-text {
-            font-weight: bold;
-            border-right: 2px solid black;
-            white-space: nowrap;
-            overflow: hidden;
-            width: 30%;
-            position: absolute;
-            left: 0;
-            animation: typing 6s steps(30, end) infinite, blink-caret 0.75s step-end infinite;
-            font-size: calc(1rem + 1vw);
-
+        100% {
+          transform: translate(40px, -35px);
         }
+      }
+      .main-content {
+        position: relative;
+        z-index: 2;
+      }
 
-        @keyframes typing {
-            from {
-                width: 0;
-            }
-
-            to {
-                width: 60%;
-            }
+      /* ===== NAVBAR ===== */
+      .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(3, 5, 11, 0.9);
+        backdrop-filter: blur(20px);
+        z-index: 200;
+        padding: 0.75rem 2rem;
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-inner {
+        max-width: 1280px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .logo {
+        font-weight: 900;
+        font-size: 1.3rem;
+        letter-spacing: 2px;
+        background: linear-gradient(135deg, #fff, #00d4ff, #39ff14);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      #ntog {
+        display: none;
+      }
+      .ntog-lbl {
+        display: none;
+        font-size: 1.7rem;
+        color: var(--blue);
+        cursor: pointer;
+      }
+      .nav-links {
+        display: flex;
+        gap: 1.6rem;
+      }
+      .nav-links a {
+        text-decoration: none;
+        color: #ccd6f6;
+        font-weight: 600;
+        font-size: 0.9rem;
+        letter-spacing: 0.5px;
+        transition: 0.2s;
+      }
+      .nav-links a:hover {
+        color: var(--blue);
+        text-shadow: 0 0 8px var(--blue);
+      }
+      @media (max-width: 720px) {
+        .ntog-lbl {
+          display: block;
         }
-
-        @keyframes blink-caret {
-
-            from,
-            to {
-                border-color: transparent;
-            }
-
-            50% {}
+        .nav-links {
+          position: absolute;
+          top: 56px;
+          left: 0;
+          width: 100%;
+          background: rgba(3, 5, 11, 0.98);
+          flex-direction: column;
+          align-items: center;
+          gap: 1rem;
+          padding: 1.2rem;
+          transform: scaleY(0);
+          transform-origin: top;
+          transition: transform 0.25s ease;
+          border-bottom: 1px solid var(--blue);
         }
-
-        @media only screen and (max-width: 465px) {
-            .typing-container {
-                padding: 10px;
-                flex-direction: column;
-                text-wrap: wrap;
-                min-height: 70px;
-
-            }
-
-            .typing-text {
-                font-size: 1.5em;
-                width: auto;
-                white-space: normal;
-
-            }
+        #ntog:checked ~ .nav-links {
+          transform: scaleY(1);
         }
+      }
 
+      /* ===== GLASS ===== */
+      .glass {
+        background: rgba(8, 18, 32, 0.65);
+        backdrop-filter: blur(16px);
+        border-radius: 24px;
+        border: 1px solid var(--border);
+        box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.7);
+      }
 
-        .btn-custom:hover {
-            width: 210px !important;
-            height: 60px;
-            transition: .5s;
-            font-size: 30px !important;
-            background-color: #2ef273 !important;
-            color: black !important;
+      /* ===== HERO ===== */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 7rem 2rem 3rem;
+      }
+      .hero-row {
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3rem;
+        align-items: center;
+      }
+      .hero-text {
+        flex: 1.3;
+        min-width: 260px;
+      }
+      .hero-right {
+        flex: 0.8;
+        text-align: center;
+        min-width: 180px;
+      }
+      .badge {
+        display: inline-block;
+        background: rgba(0, 212, 255, 0.1);
+        border: 1px solid rgba(0, 212, 255, 0.4);
+        border-radius: 50px;
+        padding: 0.3rem 1rem;
+        font-size: 0.82rem;
+        color: var(--blue);
+        margin-bottom: 1rem;
+        letter-spacing: 1px;
+      }
+      .hero-name {
+        font-size: clamp(2rem, 5vw, 3.4rem);
+        font-weight: 900;
+        line-height: 1.05;
+        background: linear-gradient(135deg, #ffffff, #00d4ff);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        margin-bottom: 1rem;
+      }
+      .tw-wrap {
+        display: inline-block;
+        background: rgba(0, 212, 255, 0.08);
+        border: 1px solid rgba(0, 212, 255, 0.2);
+        border-radius: 50px;
+        padding: 0.3rem 1.2rem;
+        font-size: 1.2rem;
+        margin: 0.5rem 0 1rem;
+      }
+      .typed {
+        border-right: 3px solid var(--green);
+        animation: blink 0.75s step-end infinite;
+      }
+      @keyframes blink {
+        0%,
+        100% {
+          border-color: transparent;
         }
-
-        .large-text {
-            padding-top: 50px;
-            font-size: 10rem;
-            z-index: 1;
+        50% {
+          border-color: #39ff14;
         }
-
-        @media (max-width: 992px) {
-            .large-text {
-                font-size: 8rem;
-            }
+      }
+      .hero-sub {
+        color: #8892b0;
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
+        font-size: 0.98rem;
+      }
+      .btns {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .btn-p {
+        background: var(--blue);
+        color: #000;
+        font-weight: 800;
+        padding: 0.7rem 1.8rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-size: 0.93rem;
+        box-shadow: 0 0 22px rgba(0, 212, 255, 0.45);
+        transition: 0.25s;
+      }
+      .btn-p:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 0 35px rgba(0, 212, 255, 0.7);
+      }
+      .btn-o {
+        background: transparent;
+        color: var(--green);
+        border: 1.5px solid var(--green);
+        padding: 0.7rem 1.8rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-size: 0.93rem;
+        font-weight: 700;
+        transition: 0.25s;
+      }
+      .btn-o:hover {
+        background: rgba(57, 255, 20, 0.1);
+        transform: translateY(-2px);
+      }
+      .avatar-ring {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+        background: linear-gradient(135deg, var(--blue), var(--green));
+        border-radius: 50%;
+        padding: 4px;
+        box-shadow: 0 0 45px rgba(0, 212, 255, 0.5);
+        animation: floatA 4s ease infinite;
+      }
+      @keyframes floatA {
+        0%,
+        100% {
+          transform: translateY(0);
         }
-
-        @media (max-width: 768px) {
-            .large-text {
-                font-size: 6rem;
-            }
+        50% {
+          transform: translateY(-14px);
         }
+      }
+      .avatar-ring img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        background: #0a1a2e;
+      }
 
-        @media (max-width: 576px) {
-            .large-text {
-                font-size: 4rem;
-            }
+      /* STATS */
+      .stats-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        max-width: 1200px;
+        margin: 2.5rem auto 0;
+        padding: 0 2rem;
+      }
+      .stat {
+        flex: 1;
+        min-width: 110px;
+        background: rgba(0, 212, 255, 0.07);
+        border: 1px solid rgba(0, 212, 255, 0.22);
+        border-radius: 18px;
+        padding: 0.9rem 1rem;
+        text-align: center;
+      }
+      .stat-n {
+        font-size: 1.9rem;
+        font-weight: 900;
+        color: var(--green);
+      }
+      .stat-l {
+        font-size: 0.75rem;
+        color: #8892b0;
+        margin-top: 0.15rem;
+      }
+
+      /* ===== SECTION ===== */
+      section {
+        padding: 4rem 1.5rem;
+      }
+      .sec-title {
+        font-size: clamp(1.4rem, 3vw, 2rem);
+        font-weight: 900;
+        text-align: center;
+        margin-bottom: 2.5rem;
+        letter-spacing: 2px;
+        background: linear-gradient(135deg, #fff, var(--blue));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .sec-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      /* ===== ABOUT ===== */
+      .about-p {
+        font-size: 1.02rem;
+        line-height: 1.8;
+        color: #ccd6f6;
+        margin-bottom: 0.9rem;
+      }
+      .about-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin-top: 1.4rem;
+      }
+      .atag {
+        background: rgba(0, 212, 255, 0.1);
+        border: 1px solid rgba(0, 212, 255, 0.28);
+        border-radius: 30px;
+        padding: 0.3rem 1rem;
+        font-size: 0.8rem;
+        color: var(--blue);
+        transition: 0.2s;
+      }
+      .atag:hover {
+        background: rgba(0, 212, 255, 0.2);
+        transform: translateY(-2px);
+      }
+
+      /* ===================================================
+           FIXED SOLAR SYSTEM — LARGER, CLEARER, READABLE
+           Using original Java icon (fa-java) where required
+        =================================================== */
+      .skills-bg {
+        padding: 4rem 1rem 3rem;
+        background: radial-gradient(
+          ellipse at 50% 40%,
+          #04102a 0%,
+          #01000c 100%
+        );
+        overflow: visible;
+      }
+      .solar-stage {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 2rem 0 1.5rem;
+      }
+      /* MUCH LARGER WRAPPER - scales beautifully */
+      .solar-w {
+        position: relative;
+        width: min(85vw, 650px);
+        height: min(85vw, 650px);
+        margin: 0 auto;
+      }
+
+      /* SUN: bigger and more prominent with Java icon */
+      .sun {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 130px;
+        height: 130px;
+        transform: translate(-50%, -50%);
+        background: radial-gradient(
+          circle at 38% 32%,
+          #ffe566,
+          #ff8c00,
+          #c84b00
+        );
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        box-shadow:
+          0 0 0 12px rgba(255, 150, 0, 0.12),
+          0 0 55px #ff8c00cc;
+        border: 2px solid rgba(255, 220, 100, 0.55);
+        z-index: 20;
+        animation: sunPulse 3s ease infinite;
+      }
+      @keyframes sunPulse {
+        0%,
+        100% {
+          box-shadow:
+            0 0 0 12px rgba(255, 150, 0, 0.12),
+            0 0 55px #ff8c00cc;
         }
-
-        .container1 h2,
-        .container1 p {
-            z-index: 1;
-            position: relative;
+        50% {
+          box-shadow:
+            0 0 0 18px rgba(255, 150, 0, 0.06),
+            0 0 75px #ff8c00dd;
         }
+      }
+      .sun-icon {
+        font-size: 2.5rem;
+        color: #fff;
+        text-shadow: 0 0 10px rgba(255, 200, 0, 0.8);
+        margin-bottom: 4px;
+      }
+      .sun-java {
+        font-size: 1.1rem;
+        font-weight: 900;
+        color: #fff8e1;
+        letter-spacing: 2px;
+        margin-top: 2px;
+      }
+      .sun-sub {
+        font-size: 0.55rem;
+        font-weight: 700;
+        color: #ffd580;
+        letter-spacing: 0.5px;
+        background: rgba(0, 0, 0, 0.4);
+        padding: 3px 10px;
+        border-radius: 20px;
+        margin-top: 5px;
+        white-space: nowrap;
+      }
 
-        .container1 {
-            position: relative;
-            overflow: hidden;
+      /* ORBIT RING: smooth rotation */
+      .orbit {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border-radius: 50%;
+        border: 1.5px dashed rgba(0, 210, 255, 0.4);
+        transform: translate(-50%, -50%);
+        will-change: transform;
+        animation: orbitCW linear infinite;
+      }
+      @keyframes orbitCW {
+        from {
+          transform: translate(-50%, -50%) rotate(0deg);
         }
-
-        .zoom-container {
-            overflow: hidden;
-            position: relative;
+        to {
+          transform: translate(-50%, -50%) rotate(360deg);
         }
+      }
 
-        .zoom-container img {
-            width: 100%;
-            height: 100%;
-            transition: transform 0.5s ease;
+      /* PLANET: larger, better text contrast, stays upright */
+      .planet {
+        position: absolute;
+        left: 50%;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        text-align: center;
+        color: #fff;
+        line-height: 1.2;
+        padding: 6px 4px;
+        border: 1.5px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 0 18px rgba(0, 212, 255, 0.7);
+        will-change: transform;
+        animation: planetCCW linear infinite;
+        cursor: default;
+        transition: all 0.2s ease;
+        backdrop-filter: blur(2px);
+        text-shadow: 0 0 2px black;
+      }
+      .planet:hover {
+        box-shadow: 0 0 28px #39ff14;
+        transform: translateX(-50%) scale(1.02);
+        border-color: var(--green);
+      }
+      @keyframes planetCCW {
+        from {
+          transform: translateX(-50%) rotate(0deg);
         }
-
-        .zoom-container:hover img {
-            transform: scale(1.2);
+        to {
+          transform: translateX(-50%) rotate(-360deg);
         }
+      }
 
-        .img-card1 {
-            object-fit: cover;
-            width: 100%;
-            height: 270px;
+      .solar-note {
+        text-align: center;
+        margin-top: 1.5rem;
+        color: rgba(0, 212, 255, 0.6);
+        font-size: 0.9rem;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+      }
+
+      /* responsive adjustments for mobile */
+      @media (max-width: 600px) {
+        .solar-w {
+          width: min(92vw, 460px);
+          height: min(92vw, 460px);
         }
-
-        .img-class img:hover {
-            border-color: black !important;
+        .sun {
+          width: 95px;
+          height: 95px;
         }
-
-        .icon-class i:hover {
-            background-color: rgb(112, 112, 112) !important;
-
+        .sun-icon {
+          font-size: 1.8rem;
         }
-
-        /* ------------------------------------- */
-
-        .image-container {
-            min-height: 550px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .sun-java {
+          font-size: 0.8rem;
         }
-
-        .responsive-img {
-            max-width: 100%;
-            height: auto;
+        .planet {
+          font-size: 0.6rem;
+          padding: 4px 3px;
         }
+      }
 
-        @media (max-width: 767px) {
-            .image-container {
-                min-height: auto;
-                height: auto;
-                padding-top: 20px;
-                /* Add some padding if needed */
-                padding-bottom: 20px;
-            }
+      /* ===== SKILL HEXAGON GRID (unchanged) ===== */
+      .hex-section {
+        padding: 3.5rem 1rem;
+        background: rgba(0, 4, 14, 0.55);
+      }
+      .hex-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0;
+        max-width: 960px;
+        margin: 0 auto;
+      }
+      .hex-cell {
+        width: 110px;
+        height: 126px;
+        margin: 4px 3px;
+        position: relative;
+        cursor: default;
+      }
+      .hex-cell .hex-bg {
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 212, 255, 0.08);
+        border: 1px solid rgba(0, 212, 255, 0.22);
+        clip-path: polygon(
+          50% 0%,
+          100% 25%,
+          100% 75%,
+          50% 100%,
+          0% 75%,
+          0% 25%
+        );
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 6px;
+        transition: all 0.3s ease;
+      }
+      .hex-cell:hover .hex-bg {
+        background: rgba(0, 212, 255, 0.22);
+        border-color: var(--green);
+        box-shadow: 0 0 20px rgba(57, 255, 20, 0.35);
+      }
+      .hex-cell .hex-bg i {
+        font-size: 1.3rem;
+        color: var(--blue);
+        transition: 0.3s;
+      }
+      .hex-cell:hover .hex-bg i {
+        color: var(--green);
+      }
+      .hex-cell .hex-bg span {
+        font-size: 0.68rem;
+        font-weight: 700;
+        color: #ccd6f6;
+        padding: 0 8px;
+        line-height: 1.3;
+      }
+      .hex-row-offset {
+        margin-left: 57px;
+      }
 
-            .responsive-img {
-                width: 100%;
-                height: auto;
-                object-fit: contain;
-            }
+      /* ===== EXPERIENCE ===== */
+      .exp-card {
+        background: rgba(4, 12, 28, 0.85);
+        border-radius: 20px;
+        padding: 1.8rem;
+        border-left: 4px solid var(--blue);
+        border: 1px solid rgba(0, 212, 255, 0.18);
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      .exp-head {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 0.4rem;
+      }
+      .exp-title {
+        font-size: 1.1rem;
+        font-weight: 800;
+        color: #fff;
+      }
+      .exp-date {
+        color: var(--blue);
+        font-weight: 700;
+        font-size: 0.9rem;
+      }
+      .exp-co {
+        color: var(--green);
+        font-weight: 700;
+        margin-bottom: 1rem;
+        font-size: 0.95rem;
+      }
+      .exp-ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.55rem;
+      }
+      .exp-ul li {
+        color: #8892b0;
+        font-size: 0.95rem;
+        padding-left: 1.2rem;
+        position: relative;
+        line-height: 1.6;
+      }
+      .exp-ul li::before {
+        content: "▹";
+        position: absolute;
+        left: 0;
+        color: var(--blue);
+      }
+
+      /* ===== PROJECTS ===== */
+      .proj-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.4rem;
+        justify-content: center;
+      }
+      .proj-card {
+        flex: 1;
+        min-width: 250px;
+        max-width: 330px;
+        background: rgba(4, 11, 26, 0.88);
+        border-radius: 20px;
+        padding: 1.5rem;
+        border: 1px solid rgba(0, 212, 255, 0.13);
+        transition: all 0.3s ease;
+        cursor: default;
+      }
+      .proj-card:hover {
+        transform: perspective(700px) rotateX(3deg) rotateY(5deg)
+          translateY(-8px);
+        border-color: var(--green);
+        box-shadow: 0 20px 45px -12px rgba(0, 212, 255, 0.3);
+      }
+      .proj-icon {
+        font-size: 1.7rem;
+        color: var(--blue);
+        margin-bottom: 0.7rem;
+      }
+      .proj-title {
+        font-weight: 800;
+        font-size: 1rem;
+        color: #fff;
+        margin-bottom: 0.5rem;
+      }
+      .proj-desc {
+        color: #8892b0;
+        font-size: 0.87rem;
+        line-height: 1.65;
+        margin-bottom: 0.8rem;
+      }
+      .badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.3rem;
+      }
+      .bdg {
+        background: rgba(0, 212, 255, 0.08);
+        border: 1px solid rgba(0, 212, 255, 0.22);
+        border-radius: 20px;
+        padding: 0.18rem 0.65rem;
+        font-size: 0.68rem;
+        color: var(--blue);
+      }
+
+      /* ===== EDUCATION ===== */
+      .edu-wrap {
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .edu-ico {
+        font-size: 2.4rem;
+        color: var(--blue);
+      }
+      .edu-deg {
+        font-weight: 800;
+        font-size: 1.05rem;
+        color: #fff;
+        margin-bottom: 0.3rem;
+      }
+      .edu-det {
+        color: #8892b0;
+        font-size: 0.9rem;
+      }
+      .edu-cgpa {
+        color: var(--green);
+        font-weight: 800;
+        margin-top: 0.35rem;
+      }
+
+      .int-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.4rem;
+        justify-content: center;
+        margin-top: 2rem;
+      }
+      .int-card {
+        flex: 1;
+        min-width: 240px;
+        max-width: 400px;
+        background: rgba(4, 11, 26, 0.88);
+        border-radius: 20px;
+        padding: 1.5rem;
+        border: 1px solid rgba(0, 212, 255, 0.13);
+        transition: 0.25s;
+      }
+      .int-card:hover {
+        border-color: var(--green);
+        transform: translateY(-4px);
+      }
+      .int-ico {
+        font-size: 1.7rem;
+        margin-bottom: 0.7rem;
+      }
+      .int-title {
+        font-weight: 800;
+        font-size: 1rem;
+        color: #fff;
+        margin-bottom: 0.3rem;
+      }
+      .int-org {
+        color: var(--blue);
+        font-size: 0.85rem;
+        margin-bottom: 0.7rem;
+      }
+      .int-desc {
+        color: #8892b0;
+        font-size: 0.88rem;
+        line-height: 1.65;
+      }
+
+      /* ===== CERTIFICATIONS ===== */
+      .cert-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      .cert {
+        background: linear-gradient(
+          135deg,
+          rgba(0, 212, 255, 0.12),
+          rgba(57, 255, 20, 0.04)
+        );
+        border: 1px solid rgba(0, 212, 255, 0.4);
+        border-radius: 50px;
+        padding: 0.7rem 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        font-weight: 700;
+        font-size: 0.9rem;
+        transition: 0.25s;
+      }
+      .cert i {
+        color: var(--green);
+        font-size: 1.4rem;
+      }
+      .cert:hover {
+        transform: translateY(-3px);
+        border-color: var(--green);
+        background: rgba(0, 212, 255, 0.18);
+      }
+
+      /* ===== CONTACT ===== */
+      .contact-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+      }
+      .chip {
+        background: rgba(0, 212, 255, 0.08);
+        border: 1px solid rgba(0, 212, 255, 0.2);
+        border-radius: 50px;
+        padding: 0.6rem 1.4rem;
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        text-decoration: none;
+        color: #ccd6f6;
+        font-size: 0.9rem;
+        font-weight: 600;
+        transition: 0.2s;
+      }
+      .chip i {
+        color: var(--blue);
+        font-size: 1.1rem;
+      }
+      .chip:hover {
+        background: rgba(0, 212, 255, 0.18);
+        color: #fff;
+        transform: translateY(-2px);
+      }
+
+      /* ===== FADE-UP ===== */
+      .fu {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fuAnim 0.75s forwards;
+        animation-play-state: paused;
+      }
+      .fu.vis {
+        animation-play-state: running;
+      }
+      @keyframes fuAnim {
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
+      }
 
-        /* ---------------------------------- */
-        @media (max-width:992px) {
-            .remove-space {
-                height: 100px !important;
-                margin-top: 0 !important;
-            }
-        }
+      footer {
+        text-align: center;
+        padding: 2rem;
+        border-top: 1px solid rgba(0, 212, 255, 0.12);
+        color: #8892b0;
+        font-size: 0.85rem;
+        margin-top: 2rem;
+      }
     </style>
-</head>
+  </head>
+  <body>
+    <div class="space-bg" id="bg"></div>
 
-<body>
-    <div class="box bg-dark">
-        <div class="header w-100 bg-dark fixed-top pt-2 pb-2">
-            <div class="container ">
-                <nav class="navbar navbar-expand-lg">
-                    <div class="container-fluid">
-                        <a class="navbar-brand text-white fw-bolder fs-3" href="#">Anujkumar Prajapati</a>
-
-                        <button class="navbar-toggler border-white icon-link-hover " type="button"
-                            data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                            <i class="fa-solid fa-bars fs-2 text-white"></i>
-                        </button>
-
-                        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                            <ul class="navbar-nav menu fs-5">
-                                <li class="nav-item">
-                                    <a class="nav-link text-white  pe-4 " aria-current="page" href="#">Home</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-white  pe-4" href="#about">About</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-white pe-4" href="#Internship">Internship</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-white  pe-4" href="#project">Projects</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-white " href="#contact">Contact</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-            </div>
+    <nav class="navbar">
+      <div class="nav-inner">
+        <div class="logo">⚡ ANUJ PRAJAPATI</div>
+        <input type="checkbox" id="ntog" style="display: none" />
+        <label for="ntog" class="ntog-lbl">☰</label>
+        <div class="nav-links">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#education">Education</a>
+          <a href="#contact">Contact</a>
         </div>
+      </div>
+    </nav>
 
-        <!-- -------------------------------------------------------------part1--------------------------------------------------- -->
-
-        <div class="container  container-fluid ps-5 pe-5 pb-5 bg-dark" style="min-height: 500px; margin-top: 80px; ">
-
-            <div class="row ">
-                <div
-                    class="col-lg-6 col-md-12 mt-5 order-lg-2 d-flex justify-content-center align-items-center image-container ">
-                    <img src="img/office-boy.webp" class="img-fluid" alt="">
-                </div>
-
-                <div class=" col-lg-6 col-md-12 mt-5 d-flex flex-column  justify-content-center order-lg-1 remove-space"
-                    style=" min-height: 400px;">
-                    <p class="fw-bold text-warning fs-5">HELLO !</p>
-                    <H1 class="fw-bolder text-white" style="font-size: 3.8vmax;">I'm <span
-                            style="color: rgb(81, 66, 245);">Anujkumar Prajapati</span> </H1>
-                    <div class="typing-container " style="height: 40px; margin-top: 30px;">
-                        <p class="typing-text text-white">Software Engineer</p>
-                    </div>
-                    <!-- <button class=" p-2 rounded-5 border border-1 mt-4"
-                        style="background-color: #212529; width: 10vmax;">
-                        <a class="text-decoration-none text-white" href="https://rishabhnmishra.github.io/">MY WORKS</a>
-                    </button> -->
-                    <a class="btn text-white border border-2 rounded-5 mt-4" style="width: 130px;"
-                        href="#project">MY WORKS</a>
-                </div>
-
+    <div class="main-content">
+      <!-- HERO -->
+      <section id="home" class="hero">
+        <div class="hero-row">
+          <div class="hero-text">
+            <div class="badge">⚡ Open to Opportunities</div>
+            <h1 class="hero-name">Anujkumar<br />Prajapati</h1>
+            <div class="tw-wrap"><span class="typed" id="tw"></span></div>
+            <p class="hero-sub">
+              Java Backend Developer from Pune — building fast, secure,
+              production-grade backend systems using Java, Spring Boot &amp;
+              Microservices.
+            </p>
+            <div class="btns">
+              <a href="#projects" class="btn-p"
+                ><i class="fas fa-code-branch"></i> Projects</a
+              >
+              <a href="#contact" class="btn-o"
+                ><i class="fas fa-paper-plane"></i> Contact</a
+              >
             </div>
-        </div>
-
-        <!-- ------------------------------------------------------------------Part2------------------------------------------------------------------- -->
-
-        <div class="container-fluid" style="background-color: #373737; " id="about">
-
-
-            <div class="container">
-                <div class="row text-white">
-                    <div class="col-lg-6 col-12 mt-5">
-                        <div class="row text-white gap-4">
-                            <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center img-class">
-                                <img class="border border-2 rounded-circle img-fluid " src="img/Anuj1.jpeg" alt=""
-                                    style="max-width: 200px; ">
-                            </div>
-                            <div
-                                class="col-lg-7 col-md-6 col-sm-12 fs-5 d-flex flex-column justify-content-center opacity-75">
-                                <p> <span class="fw-bold"> Name :</span> Anujkumar Prajapati</p>
-                                <p> <span class="fw-bolder">Degree :</span> Bachelor of Engineering</p>
-                                <p> <span class="fw-bolder">Experience :</span> Fresher</p>
-                                <p> <span class="fw-bolder">Address :</span> Pune, Maharashtra</p>
-                            </div>
-                        </div>
-
-
-                        <div class="mt-3">
-                            <p class="fs-3 fw-bolder text-decoration-underline opacity-75 "
-                                style="letter-spacing: 1px; color: yellow">Skills</p>
-                            <div class="d-flex flex-column gap-1 mb-4">
-                                <h6>Core JAVA <span class="ps-1">80%</span></h6>
-                                <div class="progress " style="height: 12px; width: 85%;">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 80%"
-                                        aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-
-                            <div class="d-flex flex-column gap-1 mb-4">
-                                <h6>SQL <span class="ps-1">85%</span></h6>
-                                <div class="progress " style="height: 12px; width: 85%;">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 85%"
-                                        aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-
-                            <div class="d-flex flex-column gap-1 mb-4">
-                                <h6>HTML5 CSS3 <span class="ps-1">75%</span></h6>
-                                <div class="progress " style="height: 12px; width: 85%;">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 75%"
-                                        aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-
-                            <div class="d-flex flex-column gap-1 mb-4">
-                                <h6>BOOTSTRAP<span class="ps-1">90%</span></h6>
-                                <div class="progress " style="height: 12px; width: 85%;">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 90%"
-                                        aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-
-                            <div class="d-flex flex-column gap-1 mb-4">
-                                <h6>C Language<span class="ps-1">80%</span></h6>
-                                <div class="progress " style="height: 12px; width: 85%;">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 80%"
-                                        aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-
-                    <div class="col-lg-6 col-12 mt-5">
-                        <h1 class="fw-bolder mb-5 " style="font-size: 3.5vmax; ">About Me</h1>
-                        <p class="opacity-75" style="text-align: justify; letter-spacing: 1px; line-height: 25px;">With
-                            a strong foundation in programming, problem-solving, and software development accompanied by
-                            a bachelor's degree in engineering. With hands-on experience in various projects and
-                            internships, I have developed skills in Java, C, C++ , HTML/CSS , Bootstrap and MySQL. I’m
-                            excited to use my skills in a challenging environment, contributing to projects while
-                            continuing to grow as a software engineer.</p>
-
-                        <div class="row mb-3  " style="margin-top: 70px;">
-                            <div class="col-lg-3 col-5 fw-bold">Profile:</div>
-                            <div class="col-lg-9 col-7">Computer Science Engineer</div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <div class="col-lg-3 col-5 fw-bold">Education:</div>
-                            <div class="col-lg-9 col-7">Bachelor of Engineering</div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <div class="col-lg-3 col-5 fw-bold">Languages:</div>
-                            <div class="col-lg-9 col-7">Marathi, Hindi, English</div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <div class="col-lg-3 col-5 fw-bold">Certifications:</div>
-                            <div class="col-lg-9 col-7">FullStack Java, AI & ML</div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <div class="col-lg-3 col-5 fw-bold">Other Skills:</div>
-                            <div class="col-lg-9 col-7">C Language, C++</div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <div class="col-lg-3 col-5 fw-bold">Internship:</div>
-                            <div class="col-lg-9 col-7">Python with AI & ML</div>
-                        </div>
-
-                        <div class="row mb-4">
-                            <div class="col-lg-3 col-5 fw-bold">Interest:</div>
-                            <div class="col-lg-9 col-7">Playing Kabaddi, Making arts & crafts</div>
-                        </div>
-                    </div>
-                </div>
+          </div>
+          <div class="hero-right">
+            <div class="avatar-ring">
+              <img
+                src="https://placehold.co/400x400/0a1a2e/00d4ff?text=AK"
+                alt="Anujkumar Prajapati"
+              />
             </div>
+            <p style="margin-top: 0.8rem; color: #8892b0; font-size: 0.85rem">
+              <i class="fas fa-map-marker-alt" style="color: var(--blue)"></i>
+              Pune, Maharashtra
+            </p>
+          </div>
         </div>
+        <div class="stats-row">
+          <div class="stat">
+            <div class="stat-n" data-t="1">0</div>
+            <div class="stat-l">Year Experience</div>
+          </div>
+          <div class="stat">
+            <div class="stat-n" data-t="97" data-s="%">0</div>
+            <div class="stat-l">API Performance Boost</div>
+          </div>
+          <div class="stat">
+            <div class="stat-n" data-t="400" data-s="+">0</div>
+            <div class="stat-l">Employees Impacted</div>
+          </div>
+          <div class="stat">
+            <div class="stat-n" data-t="6" data-s="+">0</div>
+            <div class="stat-l">Production Projects</div>
+          </div>
+        </div>
+      </section>
 
-
-        <!-- ---------------------------------------------------------Part 3------------------------------------------------------------------------- -->
-        <div class="container-fluid bg-dark pt-5 " id="Internship">
-            <div class="container ">
-                <div class="bg-dark mb-5">
-                    <h1 class="text-white text-center">Internship</h1>
-                    <div
-                        style="height: 6px; background-image: linear-gradient(270deg,white,rgb(232, 22, 57),aqua,rgb(225, 37, 68),white);">
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-12 mb-4 text-white">
-                        <div class="p-4 pt-4 pe-5" style="background-color: #373737; min-height: 630px;">
-                            <h3 class="text-warning mb-3 fw-bolder">Aug-2021</h3>
-                            <h3 class="mb-3">Python for AI & ML</h3>
-                            <h5 class="opacity-50 mt-2 mb-4 fst-italic">Elite Techno Groups</h5>
-
-                            <p style="text-align: justify;" class="opacity-50">Elite Techno Groups work towards helping
-                                students embrace the
-                                industry
-                                requirements by exposing them to real world scenarios and providing
-                                them with the impetus to apply their skills and knowledge to tackle the
-                                issues presented.</p>
-                            <ul class="opacity-50" style="text-align: justify;">
-                                <li>Developed a user-friendly Inventory Management System (IMS) implemented features for
-                                    adding, deleting, and updating inventory items.
-                                </li>
-                                <li class="mt-3 mb-3">Analyzed and visualized data from CSV files to extract insights
-                                    and generate reports. Performed data cleaning and preprocessing using Pandas and
-                                    Numpy, and created visualizations with Matplotlib to present findings.
-                                </li>
-                                <li>Skills gained-
-                                    <ul>
-                                        <li>Handled missing data and cleaned datasets using Pandas.</li>
-                                        <li>Performed basic analysis to find trends and patterns.</li>
-                                        <li>Created simple charts and graphs with Matplotlib.</li>
-                                    </ul>
-                                </li>
-                            </ul>
-
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-12 mb-4 text-white">
-                        <div class="p-4 pt-4 pe-5" style="background-color: #373737; min-height: 630px;">
-                            <h3 class="text-warning mb-3 fw-bolder">Dec-2023-Present</h3>
-                            <h3 class="mb-3">FullStack Java</h3>
-                            <h5 class="opacity-50 mt-2 mb-4 fst-italic">Giri's Tech Hub</h5>
-
-                            <p style="text-align: justify; padding-bottom: 20px;" class="opacity-50">Giri's Tech Hub
-                                work
-                                towards provide the
-                                right candidate in the industry with good technical skills, the desired knowledge and
-                                the
-                                ability to make a successful career in the software industry.</p>
-
-                            <ul class="opacity-50" style="text-align: justify;">
-                                <li>Designed and implemented web pages using HTML, CSS, and Bootstrap: Focused on
-                                    creating responsive designs and ensuring cross-browser compatibility to enhance user
-                                    experience across different devices and platforms.
-                                </li>
-                                <li class="mb-3 mt-3">Built a strong foundation in Java, focusing on object-oriented
-                                    programming principles and writing maintainable code with best practices.
-
-                                </li>
-                                <li>Designed MySQL database schemas and implemented CRUD operations, optimizing queries
-                                    for efficient data management.
-                                </li>
-                                <li class="mt-3">skills gained-
-                                    <ul>
-                                        <li> Gained an understanding of both front-end and back-end technologies.</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+      <!-- ABOUT -->
+      <section id="about" class="fu">
+        <div class="sec-inner">
+          <h2 class="sec-title">// About Me</h2>
+          <div class="glass" style="padding: 2rem">
+            <p class="about-p">
+              I'm
+              <strong style="color: var(--green)">Anujkumar Prajapati</strong>,
+              a Java Backend Developer from Pune. I build backend systems using
+              <strong style="color: var(--blue)"
+                >Java, Spring Boot, REST APIs, and Microservices</strong
+              >
+              that are fast, secure, and built to last.
+            </p>
+            <p class="about-p">
+              I work in an Agile team, handling everything from writing and
+              testing code to deploying and fixing production issues. I design
+              <strong style="color: var(--blue)">JWT-secured APIs</strong>,
+              connect third-party services, and make sure the backend stays
+              clean and reliable.
+            </p>
+            <p class="about-p">
+              I enjoy solving real problems with code — and I'm excited to grow
+              into <strong style="color: var(--green)">cloud-native</strong> and
+              <strong style="color: var(--green)"
+                >AI-integrated backend systems</strong
+              >
+              next.
+            </p>
+            <div class="about-tags">
+              <span class="atag"><i class="fab fa-java"></i> Java</span>
+              <span class="atag"><i class="fas fa-leaf"></i> Spring Boot</span>
+              <span class="atag"><i class="fas fa-plug"></i> REST APIs</span>
+              <span class="atag"
+                ><i class="fas fa-cubes"></i> Microservices</span
+              >
+              <span class="atag"
+                ><i class="fas fa-shield-alt"></i> JWT Security</span
+              >
+              <span class="atag"
+                ><i class="fas fa-cloud"></i> Cloud Native</span
+              >
             </div>
+          </div>
         </div>
+      </section>
 
-        <!-- ----------------------------------------------------------------Part-4--------------------------------------------------------------------- -->
-        <div class="container-fluid bg-dark pt-5 " id="Internship">
-            <div class="container ">
-                <div class="bg-dark mb-5">
-                    <h1 class="text-white text-center">Education</h1>
-                    <div
-                        style="height: 6px; background-image: linear-gradient(270deg,white,rgb(232, 22, 57),aqua,rgb(225, 37, 68),white);">
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-12 mb-4 text-white">
-                        <div class="p-4 pt-4 pe-5" style="background-color: #373737; min-height: 250px;">
-                            <h3 class="text-warning mb-3 fw-bolder">2019-2023</h3>
-                            <h3 class="mb-3">Bachelor of Engineering</h3>
-                            <h5 class="opacity-50 mt-2 mb-4 fst-italic" style="letter-spacing: 2px;">Dnyanshree
-                                Institute of
-                                Engineering and Technology, Satara</h5>
-
-                            <p class="opacity-50 " style="font-size: 17px;">Grade: First Class with Distiction (CSE)</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-12 mb-4 text-white">
-                        <div class="p-4 pt-4 pe-5" style="background-color: #373737; min-height: 260px;">
-                            <h3 class="text-warning mb-3 fw-bolder">2018-2019</h3>
-                            <h3 class="mb-3">Higher Secondary School</h3>
-                            <h5 class="opacity-50 mt-2 mb-4 fst-italic" style="letter-spacing: 2px;">Yashwantrao Chavan
-                                Institute of Science Satara, Satara </h5>
-                            <p class="opacity-50 " style="font-size: 17px;">Grade: First Class (Science)</p>
-                        </div>
-                    </div>
-                </div>
+      <!-- SOLAR SYSTEM - FIXED: LARGER, CLEARER, WITH ORIGINAL JAVA ICON -->
+      <section id="skills" class="skills-bg fu">
+        <h2 class="sec-title">Technical Universe</h2>
+        <div class="solar-stage">
+          <div class="solar-w" id="solarW">
+            <div class="sun">
+              <i class="fab fa-java sun-icon"></i>
+              <div class="sun-java">JAVA</div>
+              <div class="sun-sub">Backend Dev</div>
             </div>
+            <!-- Orbits injected by JS -->
+          </div>
         </div>
-        <!-- ____________________________________________________________part-5_____________________________________________________________________ -->
+        <p class="solar-note">
+          ⭐ Core backend skills orbiting Java at the center — each planet
+          represents a key technology
+        </p>
+      </section>
 
-        <div class="container-fluid" style="background-color:#373737;">
-            <div class="container d-flex justify-content-center align-items-center" style="height: 200px; ">
-                <a href="https://drive.google.com/file/d/11XKwcD8cy37E9ogVrXkGsP806M4gD0QA/view?usp=sharing"
-                    class="btn btn-custom rounded-5 p-2 fs-3 fw-bold bg-warning  text-white"
-                    style="width: 200px;">RESUME</a>
+      <!-- HEX SKILL GRID -->
+      <section class="hex-section fu">
+        <h2 class="sec-title">Full Skill Arsenal</h2>
+        <div id="hexGrid" class="hex-grid"></div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section id="experience" class="fu">
+        <div class="sec-inner">
+          <h2 class="sec-title">Work Experience</h2>
+          <div class="exp-card glass">
+            <div class="exp-head">
+              <div class="exp-title">
+                <i class="fas fa-briefcase" style="color: var(--blue)"></i> Java
+                Backend Developer
+              </div>
+              <div class="exp-date">May 2025 – Present</div>
             </div>
-        </div>
-
-        <!-- -------------------------------------------------------------Part 6------------------------------------------------------------------------------- -->
-        <div class="container-fluid bg-dark" id="project">
-            <div class="container " style="padding-bottom: 100px;">
-                <div class="container1 text-center py-5 text-white">
-                    <h1 class="display-1 fw-bold  position-absolute top-50 start-50 translate-middle large-text"
-                        style="opacity: 10%; ">Projects</h1>
-                    <h2 class="fw-bold position-relative display-4" style="letter-spacing: 2px;">Projects</h2>
-                    <p class="position-relative fst-italic" id="first-project">Below are the projects on Java, Python,
-                        AI &
-                        ML, C language and HTML & CSS.</p>
-                </div>
-
-                <div class="row mt-4 ">
-                    <div class="col-lg-4 col-md-6 col-12 text-white card-group gap-3 p-3 ">
-                        <div class=" card bg-dark text-white border border-1 border-secondary">
-                            <div class="zoom-container img-card1 ">
-                                <img src="img/explore offline.jpg" alt="" class="rounded-1">
-                            </div>
-
-                            <div class="card-body pt-2">
-                                <h3 class="pb-3">Explore Offline Tourist Guide Map Based App</h3>
-                                <p style="text-align: justify;">Explore Offline (E/O) is a free Android app for
-                                    Mahabaleshwar travelers, providing detailed information on attractions, localities,
-                                    and natural beauty, including insights not found on standard maps. It helps tourists
-                                    make informed decisions during their visit.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 col-12 text-white card-group gap-3 p-3">
-                        <div class=" card bg-dark text-white border-1 border-secondary">
-                            <div class="zoom-container img-card1">
-                                <img src="img/Data-Analytics1.jpg" alt="" class="rounded-1">
-                            </div>
-                            <div class="card-body pt-2">
-                                <h3 class="pb-3">
-                                    Data Analysis using Python Project for Beginners</h3>
-                                <p style="text-align: justify;">This project involves querying a CSV file to extract
-                                    relevant data based on specific questions, helping to identify and organize the
-                                    needed information.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 col-12 text-white card-group gap-3 p-3">
-                        <div class=" card bg-dark text-white border-1 border-secondary">
-                            <div class="zoom-container img-card1">
-                                <img src="img/Hospital-Management-System.jpg" alt="" class="rounded-1">
-                            </div>
-                            <div class="card-body pt-2">
-                                <h3 class="pb-3">Hospital Management System </h3>
-                                <p style="text-align: justify;">The Hospital Management System is a console-based
-                                    project developed in C language. It manages various hospital operations, including
-                                    patient records, billing, Users can add or update patient information, manage
-                                    billing details.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 col-12 text-white card-group gap-3  p-3">
-                        <div class=" card bg-dark text-white border-1 border-secondary">
-                            <div class="zoom-container img-card1">
-                                <img src="img/sms.jpg" alt="" class="rounded-1">
-                            </div>
-                            <div class="card-body pt-2">
-                                <h3 class="pb-3">School Management System</h3>
-                                <p style="text-align: justify;">The School Management System is a console-based project
-                                    developed in C language. It manages key school operations, including student
-                                    records, teacher information, class schedules. The system allows college
-                                    administrators to add, update, and delete student and teacher details, manage class
-                                    schedules.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 col-12 text-white card-group gap-3 p-3">
-                        <div class=" card bg-dark text-white border-1 border-secondary">
-                            <div class="zoom-container img-card1">
-                                <img src="img/ims.jpeg" alt="" class="rounded-1">
-                            </div>
-                            <div class="card-body pt-2">
-                                <h3 class="pb-3">Inventory Management System</h3>
-                                <p style="text-align: justify;">The Inventory Management System helps users easily
-                                    manage their inventory. It allows adding, deleting, and updating inventory items,
-                                    making it simple to keep track of stock and ensure everything is up to date. </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 col-12 text-white card-group gap-3 p-3">
-                        <div class=" card bg-dark text-white border-1 border-secondary">
-                            <div class="zoom-container img-card1">
-                                <img src="img/portfolio.png" alt="" class="rounded-1">
-                            </div>
-                            <div class="card-body pt-2">
-                                <h3 class="pb-3">Portfolio Website</h3>
-                                <p style="text-align: justify;"> Portfolio website that showcasing skills, projects, and
-                                    internships. The site will include an "About Me" page, a GitHub link, a resume, and
-                                    contact information. The goal is to build a professional online presence.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="exp-co">
+              Rabbit and Tortoise Technology Solutions · Pune, Maharashtra
             </div>
+            <ul class="exp-ul">
+              <li>
+                Diagnosed and resolved critical production bugs in the Leave
+                Management System serving 400+ employees, improving performance
+                through query optimization and code refactoring.
+              </li>
+              <li>
+                Designed and implemented REST APIs secured with JWT
+                Authentication, integrated third-party services, and contributed
+                to backend architecture decisions across multiple Spring Boot
+                applications.
+              </li>
+              <li>
+                Delivered features across the full SDLC in an Agile environment
+                — from requirement analysis and development through unit
+                testing, deployment, and production issue resolution.
+              </li>
+            </ul>
+          </div>
         </div>
-        <!-- --------------------------------------------------------------------part 7------------------------------------------------------------------------ -->
+      </section>
 
-        <div class="container-fluid" style="background-color:#373737;">
-            <div class="container d-flex flex-column justify-content-center align-items-center" style="height: 300px; ">
-                <h1 class="mb-5 fw-bolder text-white">More projects on <span
-                        class="text-warning text-decoration-underline">GITHUB</span></h1>
-                <a href="https://github.com/AnujKP04"
-                    class="btn btn-custom rounded-5 p-2 fs-3 fw-bold bg-warning  text-white"
-                    style="width: 200px;">GITHUB</a>
+      <!-- PROJECTS -->
+      <section id="projects" class="fu">
+        <h2 class="sec-title">Cosmic Projects</h2>
+        <div class="proj-grid" style="max-width: 1100px; margin: 0 auto">
+          <div class="proj-card">
+            <div class="proj-icon"><i class="fas fa-network-wired"></i></div>
+            <div class="proj-title">Router Management System</div>
+            <div class="proj-desc">
+              End-to-end delivery — DB design, REST APIs, real-time WebSocket
+              dashboards, JWT + RBAC, scheduler-driven background jobs.
+              Delivered in 4 months.
             </div>
-        </div>
-
-        <!-- -----------------------------------------------------------------------part 8----------------------------------------------------------------------------- -->
-        <div class="container-fluid bg-dark pb-5" style=" min-height: 600px;" id="contact">
-            <div class="container">
-                <div class="container1 text-center py-5 text-white">
-                    <h1 class="display-1 fw-bold  position-absolute top-50 start-50 translate-middle large-text"
-                        style="opacity: 10%; letter-spacing: 3px; ">Contact</h1>
-                    <h2 class="fw-bold position-relative display-4 " style="letter-spacing: 2px;">Contact Me</h2>
-                    <p class="fs-5 fst-italic opacity-75">Below are the details to reach out to me!</p>
-                </div>
-                <div class="row justify-content-center gap-5 align-items-center text-center "
-                    style=" margin-top: 40px;">
-
-                    <div class=" text-white col-lg-2 col-md-5 col-sm-5 col-5 ">
-                        <a href="https://maps.app.goo.gl/vgceZnumFBFXyFUT9" class="text-decoration-none text-white">
-                        <i class="text-warning fa-solid fa-location-dot fs-2 rounded-circle p-4 mb-4"
-                            style="background-color: #373737;"></i>
-                        <h5>Address</h5>
-                        <p>Pune, Maharashtra</p>
-                    </a>
-                    </div>
-
-                    <div class="text-white col-lg-2 col-md-5 col-sm-5 col-5">
-                        <a href="tel:9309805345"  class="text-decoration-none text-white">
-                        <i class="text-primary  fa-solid fa-phone fs-2 rounded-circle p-4 mb-4"
-                            style="background-color: #373737;"></i>
-                        <h5>Contact</h5>
-                        <p>9309805345</p>
-                    </a>
-                    </div>
-
-                    <div class=" text-white col-lg-2 col-md-5 col-sm-5 col-5">
-                        <a href="mailto:anuj.kp04@gmail.com" class="text-decoration-none text-white">
-                            <i class="text-danger fa-solid fa-envelope fs-2 rounded-circle p-4 mb-4 "
-                                style="background-color: #373737;"></i>
-                            <h5>Email</h5>
-                            anuj.kp04@gmail.com
-                        </a>
-                    </div>
-
-                    <div class=" text-white col-lg-2 col-md-5 col-sm-5 col-5 ">
-                        <a class="text-decoration-none text-white"
-                            href="https://www.hackerrank.com/profile/ankitkumarkp1999">
-                            <i class="text-success fa-brands fa-hackerrank fs-2 rounded-circle p-4 mb-4 "
-                                style="background-color: #373737;"></i>
-                            <h5>HackerRank</h5>
-                            Click Here ->
-                        </a>
-                    </div>
-                </div>
-
-                <div class=" text-info d-flex flex-column justify-content-center align-items-center gap-3 mt-5">
-                    <h5 class=" text-white">Find me on</h5>
-                    <div class=" d-flex gap-3 icon-class">
-                        <i class="fa-brands fa-youtube fs-4 rounded-circle p-3  "
-                            style="background-color: #373737; cursor: pointer;"></i>
-                        <i class="fa-brands fa-linkedin fs-4 rounded-circle p-3"
-                            style="background-color: #373737; cursor: pointer;"></i>
-                        <i class="fa-brands fa-facebook fs-4 rounded-circle p-3"
-                            style="background-color: #373737; cursor: pointer;"></i>
-                        <i class="fa-brands fa-square-instagram fs-4 rounded-circle p-3"
-                            style="background-color: #373737; cursor: pointer;"></i>
-                    </div>
-                </div>
-
-                <footer class="text-white d-flex justify-content-center align-items-center"
-                    style="margin-top: 70px; margin-bottom: 40px;">
-                    <h5 class="opacity-50 " style="text-align: center;">Copyright &copy:2024 All rights reserved | This
-                        template is made by Anujkumar Prajapati</h5>
-                </footer>
+            <div class="badges">
+              <span class="bdg">Spring Boot</span><span class="bdg">MySQL</span
+              ><span class="bdg">WebSocket</span><span class="bdg">JWT</span>
             </div>
+          </div>
+          <div class="proj-card">
+            <div class="proj-icon"><i class="fas fa-tachometer-alt"></i></div>
+            <div class="proj-title">Vitesco TAGS</div>
+            <div class="proj-desc">
+              Enterprise workflow automation backend. API and workflow
+              optimization through profiling and refactoring. Resolved critical
+              production defects and improved system stability.
+            </div>
+            <div class="badges">
+              <span class="bdg">Spring Boot</span
+              ><span class="bdg">PostgreSQL</span><span class="bdg">JWT</span>
+            </div>
+          </div>
+          <div class="proj-card">
+            <div class="proj-icon"><i class="fas fa-clock"></i></div>
+            <div class="proj-title">RNT Timesheet App</div>
+            <div class="proj-desc">
+              Mobile-first employee timesheet platform. GIS-based
+              authentication, JWT authorization, approval workflows and
+              reporting for 400+ employees.
+            </div>
+            <div class="badges">
+              <span class="bdg">Spring Boot</span><span class="bdg">GIS</span
+              ><span class="bdg">JWT</span><span class="bdg">REST API</span>
+            </div>
+          </div>
+          <div class="proj-card">
+            <div class="proj-icon"><i class="fas fa-brain"></i></div>
+            <div class="proj-title">RAG with LLM</div>
+            <div class="proj-desc">
+              Retrieval-Augmented Generation pipeline integrating Spring AI with
+              large language models for intelligent document-based Q&amp;A
+              systems.
+            </div>
+            <div class="badges">
+              <span class="bdg">Spring AI</span><span class="bdg">LLM</span
+              ><span class="bdg">Spring Boot</span>
+            </div>
+          </div>
+          <div class="proj-card">
+            <div class="proj-icon"><i class="fas fa-comments"></i></div>
+            <div class="proj-title">Chat Messaging App</div>
+            <div class="proj-desc">
+              Real-time chat with Kafka event streaming and WebSocket. Scalable
+              topic-based pub/sub messaging architecture.
+            </div>
+            <div class="badges">
+              <span class="bdg">Kafka</span><span class="bdg">WebSocket</span
+              ><span class="bdg">Spring Boot</span>
+            </div>
+          </div>
+          <div class="proj-card">
+            <div class="proj-icon"><i class="fas fa-hospital"></i></div>
+            <div class="proj-title">Hospital Management</div>
+            <div class="proj-desc">
+              Console-based C language project managing patient records,
+              billing, and hospital operations with full CRUD functionality.
+            </div>
+            <div class="badges"><span class="bdg">C Language</span></div>
+          </div>
         </div>
+      </section>
 
+      <!-- EDUCATION -->
+      <section id="education" class="fu">
+        <div class="sec-inner">
+          <h2 class="sec-title">Education &amp; Internships</h2>
+          <div class="glass" style="padding: 1.8rem; margin-bottom: 2rem">
+            <div class="edu-wrap">
+              <div class="edu-ico"><i class="fas fa-university"></i></div>
+              <div>
+                <div class="edu-deg">
+                  B.Tech — Computer Science &amp; Engineering
+                </div>
+                <div class="edu-det">
+                  Dnyanshree Institute of Engineering and Technology, Satara
+                  &nbsp;|&nbsp; 2019 – 2023
+                </div>
+                <div class="edu-cgpa">
+                  CGPA: 8.6 / 10 &nbsp;·&nbsp; First Class with Distinction
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="int-grid">
+            <div class="int-card">
+              <div class="int-ico"><i class="fab fa-python"></i></div>
+              <div class="int-title">Python for AI &amp; ML</div>
+              <div class="int-org">Elite Techno Groups · Aug 2021</div>
+              <div class="int-desc">
+                Built an Inventory Management System, performed data cleaning
+                with Pandas, and created analytics visualizations with
+                Matplotlib.
+              </div>
+            </div>
+            <div class="int-card">
+              <div class="int-ico"><i class="fab fa-java"></i></div>
+              <div class="int-title">FullStack Java</div>
+              <div class="int-org">Giri's Tech Hub · Dec 2023 – 2024</div>
+              <div class="int-desc">
+                Built responsive web apps with HTML, CSS, Bootstrap. Implemented
+                MySQL CRUD operations and practiced Java OOP and Spring Boot
+                fundamentals.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
+      <!-- CERTIFICATIONS -->
+      <section class="fu">
+        <h2 class="sec-title">Certifications</h2>
+        <div class="cert-grid">
+          <div class="cert">
+            <i class="fab fa-java"></i> NPTEL: Programming in Java
+          </div>
+          <div class="cert">
+            <i class="fas fa-laptop-code"></i> Full Stack Java Developer
+          </div>
+          <div class="cert">
+            <i class="fab fa-python"></i> Python for AI/ML — ETG
+          </div>
+          <div class="cert">
+            <i class="fas fa-cloud"></i> Spring Boot Microservices
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="fu">
+        <div class="sec-inner">
+          <h2 class="sec-title">Connect</h2>
+          <div class="glass" style="padding: 2rem">
+            <div class="contact-grid">
+              <a href="mailto:prajapatianuj921@gmail.com" class="chip"
+                ><i class="fas fa-envelope"></i> prajapatianuj921@gmail.com</a
+              >
+              <a href="tel:+919309805345" class="chip"
+                ><i class="fas fa-phone-alt"></i> +91 9309805345</a
+              >
+              <a href="https://github.com/AnujKP04" target="_blank" class="chip"
+                ><i class="fab fa-github"></i> github.com/AnujKP04</a
+              >
+              <a
+                href="https://linkedin.com/in/anujkp04"
+                target="_blank"
+                class="chip"
+                ><i class="fab fa-linkedin"></i> linkedin.com/in/anujkp04</a
+              >
+              <a
+                href="https://www.hackerrank.com/profile/ankitkumarkp1999"
+                target="_blank"
+                class="chip"
+                ><i class="fab fa-hackerrank"></i> HackerRank</a
+              >
+              <a
+                href="https://anujkp04.github.io/Portfolio-Website/"
+                target="_blank"
+                class="chip"
+                ><i class="fas fa-globe"></i> Portfolio</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <p>
+          © 2026 Anujkumar Prajapati — Java Backend Developer &nbsp;|&nbsp;
+          Built with ❤️ and lots of ☕
+        </p>
+      </footer>
     </div>
 
+    <script>
+      /* ========== TYPEWRITER ========== */
+      const roles = [
+        "Spring Boot Specialist",
+        "REST API Engineer",
+        "Backend Architect",
+        "Kafka & WebSocket Dev",
+      ];
+      let ri = 0,
+        ci = 0,
+        del = false;
+      const twEl = document.getElementById("tw");
+      function tw() {
+        const cur = roles[ri];
+        twEl.textContent = cur.substring(0, ci);
+        if (!del) {
+          ci++;
+          if (ci > cur.length) {
+            del = true;
+            setTimeout(tw, 1800);
+            return;
+          }
+        } else {
+          ci--;
+          if (ci < 0) {
+            del = false;
+            ri = (ri + 1) % roles.length;
+            setTimeout(tw, 400);
+            return;
+          }
+        }
+        setTimeout(tw, del ? 65 : 110);
+      }
+      tw();
 
-</body>
+      /* ========== SOLAR SYSTEM - FIXED: LARGER PLANETS, BETTER VISIBILITY ========== */
+      const planets = [
+        { label: "Spring Boot", color: "#f97316,#b45309", dur: 12 },
+        { label: "Spring Sec.", color: "#a855f7,#6b21a8", dur: 15 },
+        { label: "MySQL", color: "#10b981,#065f46", dur: 18 },
+        { label: "Kafka", color: "#ef4444,#991b1b", dur: 21 },
+        { label: "WebSocket", color: "#ec4899,#9d174d", dur: 24 },
+        { label: "JWT Auth", color: "#14b8a6,#0f766e", dur: 27 },
+        { label: "REST API", color: "#6366f1,#3730a3", dur: 30 },
+        { label: "PostgreSQL", color: "#f59e0b,#92400e", dur: 33 },
+      ];
 
+      const minR = 22,
+        maxR = 86;
+      const step = (maxR - minR) / (planets.length - 1);
+      const sw = document.getElementById("solarW");
+
+      // Clear existing orbits (keep the sun)
+      const existingOrbits = sw.querySelectorAll(".orbit");
+      existingOrbits.forEach((orbit) => orbit.remove());
+
+      planets.forEach((p, idx) => {
+        const pct = minR + step * idx;
+        const dur = p.dur;
+        const delayOffset = -(idx * 0.7);
+
+        // Orbit ring
+        const ring = document.createElement("div");
+        ring.className = "orbit";
+        ring.style.cssText = `
+        width:${pct}%; height:${pct}%;
+        animation-duration:${dur}s;
+        animation-delay:${delayOffset}s;
+        border:1.5px dashed rgba(0,210,255,0.45);
+    `;
+
+        // Planet - larger size for better visibility
+        const planetSize = Math.max(48, Math.min(68, 58 - idx * 1.2));
+        const planetDiv = document.createElement("div");
+        planetDiv.className = "planet";
+        planetDiv.style.cssText = `
+        width:${planetSize}px; height:${planetSize}px;
+        top:-${planetSize / 2}px;
+        background:radial-gradient(circle at 35% 32%, ${p.color});
+        animation-duration:${dur}s;
+        animation-delay:${delayOffset}s;
+        font-size:${idx < 3 ? "0.68rem" : "0.64rem"};
+        font-weight:800;
+        padding:6px 3px;
+    `;
+        planetDiv.textContent = p.label;
+
+        ring.appendChild(planetDiv);
+        sw.appendChild(ring);
+      });
+
+      /* ========== HEX GRID ========== */
+      const allSkills = [
+        { i: "fas fa-code", l: "Spring MVC" },
+        { i: "fas fa-database", l: "Spring JPA" },
+        { i: "fas fa-brain", l: "Spring AI" },
+        { i: "fas fa-database", l: "InfluxDB" },
+        { i: "fab fa-aws", l: "AWS Lambda" },
+        { i: "fab fa-aws", l: "IoT Core" },
+        { i: "fab fa-aws", l: "CloudWatch" },
+        { i: "fas fa-vial", l: "JUnit 5" },
+        { i: "fas fa-vial", l: "Mockito" },
+        { i: "fas fa-stream", l: "SLF4J" },
+        { i: "fab fa-git-alt", l: "Git / GitLab" },
+        { i: "fas fa-cube", l: "Maven" },
+        { i: "fas fa-paper-plane", l: "Postman" },
+        { i: "fas fa-file-code", l: "Swagger" },
+        { i: "fas fa-sitemap", l: "SOLID" },
+        { i: "fab fa-docker", l: "Docker" },
+        { i: "fab fa-python", l: "Python" },
+        { i: "fas fa-chart-bar", l: "Pandas" },
+      ];
+
+      const grid = document.getElementById("hexGrid");
+      grid.innerHTML = "";
+      const rowSizes = [5, 4, 5, 4];
+      let si = 0;
+      rowSizes.forEach((count, ri) => {
+        const row = document.createElement("div");
+        row.style.cssText =
+          "display:flex;justify-content:center;margin-bottom:-18px;";
+        if (ri % 2 === 1) row.style.marginLeft = "57px";
+        for (let c = 0; c < count && si < allSkills.length; c++, si++) {
+          const sk = allSkills[si];
+          const cell = document.createElement("div");
+          cell.className = "hex-cell";
+          cell.innerHTML = `<div class="hex-bg"><i class="${sk.i}"></i><span>${sk.l}</span></div>`;
+          cell.style.opacity = "0";
+          cell.style.animation = `fuAnim .5s forwards ${si * 0.06}s`;
+          row.appendChild(cell);
+        }
+        grid.appendChild(row);
+      });
+
+      /* ========== STAT COUNTERS ========== */
+      function animStat(el) {
+        const t = parseInt(el.getAttribute("data-t"));
+        const s = el.getAttribute("data-s") || "+";
+        let v = 0;
+        const run = () => {
+          v += Math.ceil(t / 40);
+          if (v >= t) {
+            el.textContent = t + s;
+            return;
+          }
+          el.textContent = v + s;
+          requestAnimationFrame(run);
+        };
+        run();
+      }
+
+      /* ========== INTERSECTION OBSERVER ========== */
+      const obs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("vis");
+              obs.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12 },
+      );
+      document.querySelectorAll(".fu").forEach((el) => obs.observe(el));
+
+      const statObs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              animStat(e.target);
+              statObs.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.5 },
+      );
+      document.querySelectorAll(".stat-n").forEach((el) => statObs.observe(el));
+
+      /* ========== STARFIELD ========== */
+      const bgDiv = document.getElementById("bg");
+      for (let i = 0; i < 200; i++) {
+        const s = document.createElement("div");
+        s.className = "star";
+        const sz = Math.random() * 2.4 + 0.4;
+        s.style.cssText = `width:${sz}px;height:${sz}px;left:${Math.random() * 100}%;top:${Math.random() * 100}%;animation-delay:${Math.random() * 6}s;animation-duration:${2 + Math.random() * 4}s;`;
+        bgDiv.appendChild(s);
+      }
+      for (let i = 0; i < 9; i++) {
+        const o = document.createElement("div");
+        o.className = "orb";
+        const w = 100 + Math.random() * 200;
+        o.style.cssText = `width:${w}px;height:${w}px;left:${Math.random() * 85}%;top:${Math.random() * 85}%;background:radial-gradient(circle,#00d4ff28,#39ff1410);animation-duration:${15 + Math.random() * 20}s;`;
+        bgDiv.appendChild(o);
+      }
+    </script>
+  </body>
 </html>
