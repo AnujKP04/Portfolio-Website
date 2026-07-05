@@ -187,7 +187,7 @@
             border: 1px solid rgba(0, 212, 255, 0.18);
             border-radius: 60px;
             padding: 0.5rem 1rem 0.5rem 1.4rem;
-            box-shadow: 0 4px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.05);
+            box-shadow: 0 4px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
         }
 
         .logo {
@@ -249,7 +249,9 @@
             transition: background 0.2s;
         }
 
-        .nav-burger:hover { background: rgba(0, 212, 255, 0.18); }
+        .nav-burger:hover {
+            background: rgba(0, 212, 255, 0.18);
+        }
 
         .nav-burger span {
             display: block;
@@ -262,22 +264,37 @@
         }
 
         /* Animated X state */
-        .nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-        .nav-burger.open span:nth-child(2) { opacity: 0; width: 0; }
-        .nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+        .nav-burger.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .nav-burger.open span:nth-child(2) {
+            opacity: 0;
+            width: 0;
+        }
+
+        .nav-burger.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
 
         @media (max-width: 768px) {
+
             /* Tighter navbar on mobile so it takes less vertical space */
-            .navbar { padding: 0.45rem 0.75rem; }
+            .navbar {
+                padding: 0.45rem 0.75rem;
+            }
 
             .nav-inner {
                 border-radius: 18px;
-                padding: 0.35rem 0.75rem;  /* was 0.5rem — reduces total navbar height */
+                padding: 0.35rem 0.75rem;
+                /* was 0.5rem — reduces total navbar height */
                 flex-wrap: wrap;
                 gap: 0;
             }
 
-            .nav-burger { display: flex; }
+            .nav-burger {
+                display: flex;
+            }
 
             .nav-links {
                 width: 100%;
@@ -287,7 +304,7 @@
                 overflow: hidden;
                 max-height: 0;
                 opacity: 0;
-                transition: max-height 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.25s ease, padding 0.3s;
+                transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease, padding 0.3s;
                 padding: 0;
             }
 
@@ -302,10 +319,12 @@
                 border-radius: 12px;
                 font-size: 0.85rem;
                 color: #ccd6f6;
-                border-bottom: 1px solid rgba(0,212,255,0.07);
+                border-bottom: 1px solid rgba(0, 212, 255, 0.07);
             }
 
-            .nav-links a:last-child { border-bottom: none; }
+            .nav-links a:last-child {
+                border-bottom: none;
+            }
         }
 
         .glass {
@@ -334,6 +353,10 @@
         .hero-text {
             flex: 1.3;
             min-width: 240px;
+        }
+
+        .hero-text p {
+            text-align: justify;
         }
 
         .hero-right {
@@ -518,6 +541,7 @@
         }
 
         @media (max-width: 640px) {
+
             /* padding-top must clear the fixed navbar (~62px) + breathing room for badge */
             .hero {
                 padding: 5rem 0.9rem 1rem;
@@ -548,7 +572,7 @@
                 margin: 0 auto;
             }
 
-            .hero-right > p {
+            .hero-right>p {
                 font-size: 0.58rem !important;
                 margin-top: 0.3rem;
             }
@@ -569,29 +593,35 @@
 
             .hero-name {
                 font-size: clamp(1.1rem, 5.2vw, 1.5rem);
-                margin-bottom: 0.2rem;   /* tighter gap name → typewriter */
+                margin-bottom: 0.2rem;
+                /* tighter gap name → typewriter */
                 line-height: 1.2;
             }
 
             .tw-wrap {
                 font-size: 0.68rem;
                 padding: 0.12rem 0.55rem;
-                margin: 0.15rem 0 0.3rem; /* tighter gap typewriter → description */
+                margin: 0.15rem 0 0.3rem;
+                /* tighter gap typewriter → description */
             }
 
             .hero-sub {
                 font-size: 0.72rem;
-                margin-bottom: 0.45rem;  /* tighter gap description → buttons */
+                margin-bottom: 0.45rem;
+                /* tighter gap description → buttons */
                 line-height: 1.45;
             }
 
             .btns {
                 justify-content: flex-start;
                 gap: 0.3rem;
-                flex-wrap: nowrap;       /* force single row */
+                flex-wrap: nowrap;
+                /* force single row */
             }
 
-            .btn-p, .btn-o, .btn-gh {
+            .btn-p,
+            .btn-o,
+            .btn-gh {
                 padding: 0.32rem 0.6rem;
                 font-size: 0.65rem;
                 gap: 0.28rem;
@@ -610,19 +640,29 @@
                 padding: 0.5rem 0.3rem;
             }
 
-            .stat-n { font-size: 0.95rem; }
-            .stat-l { font-size: 0.58rem; }
+            .stat-n {
+                font-size: 0.95rem;
+            }
+
+            .stat-l {
+                font-size: 0.58rem;
+            }
         }
 
         /* Extra small screens (≤420px): shrink buttons even more to stay on one line */
         @media (max-width: 420px) {
-            .btn-p, .btn-o, .btn-gh {
+
+            .btn-p,
+            .btn-o,
+            .btn-gh {
                 padding: 0.28rem 0.48rem;
                 font-size: 0.6rem;
                 gap: 0.22rem;
             }
 
-            .btns { gap: 0.25rem; }
+            .btns {
+                gap: 0.25rem;
+            }
 
             .hero-name {
                 font-size: clamp(1rem, 5vw, 1.35rem);
@@ -700,24 +740,24 @@
             position: absolute;
             inset: 0;
             background-image:
-                radial-gradient(1px 1px at  5%  8%, rgba(255,255,255,0.85) 0%, transparent 100%),
-                radial-gradient(1px 1px at 12% 72%, rgba(255,255,255,0.7)  0%, transparent 100%),
-                radial-gradient(1px 1px at 18% 38%, rgba(255,255,255,0.9)  0%, transparent 100%),
-                radial-gradient(1px 1px at 28% 15%, rgba(255,255,255,0.6)  0%, transparent 100%),
-                radial-gradient(1px 1px at 35% 85%, rgba(255,255,255,0.75) 0%, transparent 100%),
-                radial-gradient(1px 1px at 42% 52%, rgba(255,255,255,0.85) 0%, transparent 100%),
-                radial-gradient(1px 1px at 55%  3%, rgba(255,255,255,0.7)  0%, transparent 100%),
-                radial-gradient(1px 1px at 62% 68%, rgba(255,255,255,0.9)  0%, transparent 100%),
-                radial-gradient(1px 1px at 70% 30%, rgba(255,255,255,0.65) 0%, transparent 100%),
-                radial-gradient(1px 1px at 78% 91%, rgba(255,255,255,0.8)  0%, transparent 100%),
-                radial-gradient(1px 1px at 88% 18%, rgba(255,255,255,0.7)  0%, transparent 100%),
-                radial-gradient(1px 1px at 95% 55%, rgba(255,255,255,0.85) 0%, transparent 100%),
-                radial-gradient(1px 1px at  8% 44%, rgba(200,180,255,0.7)  0%, transparent 100%),
-                radial-gradient(1px 1px at 48% 78%, rgba(180,220,255,0.8)  0%, transparent 100%),
-                radial-gradient(2px 2px at 22% 60%, rgba(255,255,255,0.5)  0%, transparent 100%),
-                radial-gradient(2px 2px at 66% 12%, rgba(255,255,255,0.45) 0%, transparent 100%),
-                radial-gradient(2px 2px at 82% 45%, rgba(200,180,255,0.5)  0%, transparent 100%),
-                radial-gradient(2px 2px at 38% 25%, rgba(180,220,255,0.5)  0%, transparent 100%);
+                radial-gradient(1px 1px at 5% 8%, rgba(255, 255, 255, 0.85) 0%, transparent 100%),
+                radial-gradient(1px 1px at 12% 72%, rgba(255, 255, 255, 0.7) 0%, transparent 100%),
+                radial-gradient(1px 1px at 18% 38%, rgba(255, 255, 255, 0.9) 0%, transparent 100%),
+                radial-gradient(1px 1px at 28% 15%, rgba(255, 255, 255, 0.6) 0%, transparent 100%),
+                radial-gradient(1px 1px at 35% 85%, rgba(255, 255, 255, 0.75) 0%, transparent 100%),
+                radial-gradient(1px 1px at 42% 52%, rgba(255, 255, 255, 0.85) 0%, transparent 100%),
+                radial-gradient(1px 1px at 55% 3%, rgba(255, 255, 255, 0.7) 0%, transparent 100%),
+                radial-gradient(1px 1px at 62% 68%, rgba(255, 255, 255, 0.9) 0%, transparent 100%),
+                radial-gradient(1px 1px at 70% 30%, rgba(255, 255, 255, 0.65) 0%, transparent 100%),
+                radial-gradient(1px 1px at 78% 91%, rgba(255, 255, 255, 0.8) 0%, transparent 100%),
+                radial-gradient(1px 1px at 88% 18%, rgba(255, 255, 255, 0.7) 0%, transparent 100%),
+                radial-gradient(1px 1px at 95% 55%, rgba(255, 255, 255, 0.85) 0%, transparent 100%),
+                radial-gradient(1px 1px at 8% 44%, rgba(200, 180, 255, 0.7) 0%, transparent 100%),
+                radial-gradient(1px 1px at 48% 78%, rgba(180, 220, 255, 0.8) 0%, transparent 100%),
+                radial-gradient(2px 2px at 22% 60%, rgba(255, 255, 255, 0.5) 0%, transparent 100%),
+                radial-gradient(2px 2px at 66% 12%, rgba(255, 255, 255, 0.45) 0%, transparent 100%),
+                radial-gradient(2px 2px at 82% 45%, rgba(200, 180, 255, 0.5) 0%, transparent 100%),
+                radial-gradient(2px 2px at 38% 25%, rgba(180, 220, 255, 0.5) 0%, transparent 100%);
             animation: starTwinkle1 4s ease-in-out infinite alternate;
             pointer-events: none;
             z-index: 0;
@@ -729,37 +769,67 @@
             position: absolute;
             inset: 0;
             background-image:
-                radial-gradient(1px 1px at 15% 90%, rgba(255,255,255,0.8)  0%, transparent 100%),
-                radial-gradient(1px 1px at 33% 48%, rgba(255,255,255,0.65) 0%, transparent 100%),
-                radial-gradient(1px 1px at 50% 20%, rgba(255,255,255,0.9)  0%, transparent 100%),
-                radial-gradient(1px 1px at 72% 75%, rgba(255,255,255,0.7)  0%, transparent 100%),
-                radial-gradient(1px 1px at 90% 35%, rgba(255,255,255,0.85) 0%, transparent 100%),
-                radial-gradient(1px 1px at  3% 60%, rgba(180,220,255,0.7)  0%, transparent 100%),
-                radial-gradient(1px 1px at 25% 5%,  rgba(200,180,255,0.75) 0%, transparent 100%),
-                radial-gradient(1px 1px at 58% 95%, rgba(255,255,255,0.6)  0%, transparent 100%),
-                radial-gradient(1px 1px at 85% 65%, rgba(255,255,255,0.8)  0%, transparent 100%),
-                radial-gradient(2px 2px at 45% 40%, rgba(255,220,180,0.55) 0%, transparent 100%),
-                radial-gradient(2px 2px at 10% 25%, rgba(180,220,255,0.5)  0%, transparent 100%),
-                radial-gradient(2px 2px at 78% 10%, rgba(200,180,255,0.5)  0%, transparent 100%),
-                radial-gradient(3px 3px at 60% 55%, rgba(255,255,255,0.35) 0%, transparent 100%),
-                radial-gradient(3px 3px at 20% 80%, rgba(180,220,255,0.3)  0%, transparent 100%);
+                radial-gradient(1px 1px at 15% 90%, rgba(255, 255, 255, 0.8) 0%, transparent 100%),
+                radial-gradient(1px 1px at 33% 48%, rgba(255, 255, 255, 0.65) 0%, transparent 100%),
+                radial-gradient(1px 1px at 50% 20%, rgba(255, 255, 255, 0.9) 0%, transparent 100%),
+                radial-gradient(1px 1px at 72% 75%, rgba(255, 255, 255, 0.7) 0%, transparent 100%),
+                radial-gradient(1px 1px at 90% 35%, rgba(255, 255, 255, 0.85) 0%, transparent 100%),
+                radial-gradient(1px 1px at 3% 60%, rgba(180, 220, 255, 0.7) 0%, transparent 100%),
+                radial-gradient(1px 1px at 25% 5%, rgba(200, 180, 255, 0.75) 0%, transparent 100%),
+                radial-gradient(1px 1px at 58% 95%, rgba(255, 255, 255, 0.6) 0%, transparent 100%),
+                radial-gradient(1px 1px at 85% 65%, rgba(255, 255, 255, 0.8) 0%, transparent 100%),
+                radial-gradient(2px 2px at 45% 40%, rgba(255, 220, 180, 0.55) 0%, transparent 100%),
+                radial-gradient(2px 2px at 10% 25%, rgba(180, 220, 255, 0.5) 0%, transparent 100%),
+                radial-gradient(2px 2px at 78% 10%, rgba(200, 180, 255, 0.5) 0%, transparent 100%),
+                radial-gradient(3px 3px at 60% 55%, rgba(255, 255, 255, 0.35) 0%, transparent 100%),
+                radial-gradient(3px 3px at 20% 80%, rgba(180, 220, 255, 0.3) 0%, transparent 100%);
             animation: starTwinkle2 5.5s ease-in-out infinite alternate;
             pointer-events: none;
             z-index: 0;
         }
 
         @keyframes starTwinkle1 {
-            0%   { opacity: 0.5; transform: scale(1);    }
-            40%  { opacity: 1;   transform: scale(1.06); }
-            70%  { opacity: 0.7; transform: scale(0.97); }
-            100% { opacity: 0.9; transform: scale(1.04); }
+            0% {
+                opacity: 0.5;
+                transform: scale(1);
+            }
+
+            40% {
+                opacity: 1;
+                transform: scale(1.06);
+            }
+
+            70% {
+                opacity: 0.7;
+                transform: scale(0.97);
+            }
+
+            100% {
+                opacity: 0.9;
+                transform: scale(1.04);
+            }
         }
 
         @keyframes starTwinkle2 {
-            0%   { opacity: 0.7; transform: scale(1.03); }
-            35%  { opacity: 0.4; transform: scale(0.96); }
-            65%  { opacity: 1;   transform: scale(1.07); }
-            100% { opacity: 0.6; transform: scale(1);    }
+            0% {
+                opacity: 0.7;
+                transform: scale(1.03);
+            }
+
+            35% {
+                opacity: 0.4;
+                transform: scale(0.96);
+            }
+
+            65% {
+                opacity: 1;
+                transform: scale(1.07);
+            }
+
+            100% {
+                opacity: 0.6;
+                transform: scale(1);
+            }
         }
 
         /* Ensure solar-stage and sec-title sit above the star layers */
@@ -780,7 +850,8 @@
 
         .solar-w {
             position: relative;
-            width: min(86vw, 560px);       /* bigger on desktop */
+            width: min(86vw, 560px);
+            /* bigger on desktop */
             height: min(86vw, 560px);
             margin: 0 auto;
             contain: layout style;
@@ -842,7 +913,8 @@
             border: 1.5px dashed rgba(0, 210, 255, 0.45);
             transform: translate(-50%, -50%);
             animation: orbitCW linear infinite;
-            will-change: transform;        /* promote to own GPU layer */
+            will-change: transform;
+            /* promote to own GPU layer */
         }
 
         @keyframes orbitCW {
@@ -868,7 +940,8 @@
             border: 1.5px solid rgba(255, 255, 240, 0.5);
             box-shadow: 0 0 8px rgba(0, 212, 255, 0.5);
             animation: planetCCW linear infinite;
-            will-change: transform;        /* GPU layer — removes backdrop-filter cost */
+            will-change: transform;
+            /* GPU layer — removes backdrop-filter cost */
             cursor: default;
             text-shadow: 0 0 2px black;
             white-space: nowrap;
@@ -905,7 +978,9 @@
                 height: 72px;
             }
 
-            .sun-icon { font-size: 1.3rem; }
+            .sun-icon {
+                font-size: 1.3rem;
+            }
         }
 
         /* Laptop / mid screen — make it comfortably large */
@@ -1043,6 +1118,7 @@
         }
 
         .exp-ul li {
+            text-align: justify;
             color: #8892b0;
             font-size: 0.8rem;
             padding-left: 1rem;
@@ -1446,6 +1522,25 @@
             font-size: 0.65rem;
             margin-top: 0;
         }
+
+        .about-p {
+            text-align: justify;
+            text-justify: inter-word;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 640px) {
+            .hero-sub {
+                padding-right: 60px;
+                /* Adjust between 60px–100px as needed */
+            }
+
+            .hero-text p{
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }   
+        }
     </style>
 </head>
 
@@ -1493,7 +1588,7 @@
                 </div>
                 <div class="hero-right">
                     <div class="avatar-ring">
-                        <img src="https://placehold.co/400x400/0a1a2e/00d4ff?text=AK" alt="Anujkumar Prajapati" />
+                        <img src="img/Profile_image1.png" alt="Anujkumar Prajapati" />
                     </div>
                     <p style="margin-top: 0.5rem; color: #8892b0; font-size: 0.7rem">
                         <i class="fas fa-map-marker-alt" style="color: var(--blue)"></i>
@@ -1640,8 +1735,7 @@
                         <li>Improved system stability by 40%</li>
                     </ul>
                     <div class="badges">
-                        <span class="bdg">Spring Boot</span><span class="bdg">PostgreSQL</span><span
-                            class="bdg">JWT</span>
+                        <span class="bdg">Spring Boot</span><span class="bdg">MySQL</span><span class="bdg">JWT</span>
                     </div>
                 </div>
                 <div class="proj-card">
@@ -1653,16 +1747,17 @@
                         <li>Real-time approval workflows & reporting</li>
                     </ul>
                     <div class="badges">
-                        <span class="bdg">Spring Boot</span><span class="bdg">GIS</span><span class="bdg">JWT</span>
+                        <span class="bdg">Spring Boot</span><span class="bdg">GIS Login</span><span
+                            class="bdg">JWT</span>
                     </div>
                 </div>
                 <div class="proj-card">
                     <div class="proj-icon"><i class="fas fa-brain"></i></div>
                     <div class="proj-title">AI Knowledge Assistant</div>
                     <ul class="proj-desc-points">
-                        <li>RAG pipeline with Spring AI & LLMs (GPT/Claude)</li>
+                        <li>RAG pipeline with Spring AI & LLMs (GPT-OSS/Groq/Gemini)</li>
                         <li>Intelligent document-based Q&A system</li>
-                        <li>Natural language queries over knowledge bases</li>
+                        <li>Answer questions using real-time web data</li>
                     </ul>
                     <div class="badges">
                         <span class="bdg">Spring AI</span><span class="bdg">LLM</span><span class="bdg">Vector DB</span>
@@ -1674,7 +1769,7 @@
                     <ul class="proj-desc-points">
                         <li>Real-time chat with Kafka + WebSocket</li>
                         <li>Scalable pub/sub architecture</li>
-                        <li>Supports thousands of concurrent users</li>
+                        <li>Low-latency message delivery</li>
                     </ul>
                     <div class="badges">
                         <span class="bdg">Kafka</span><span class="bdg">WebSocket</span><span class="bdg">Spring
@@ -1687,7 +1782,7 @@
                     <ul class="proj-desc-points">
                         <li>Change Data Capture with Debezium & Kafka</li>
                         <li>Streams MySQL changes to Elasticsearch in real-time</li>
-                        <li>High-performance search API (Amazon/Flipkart style)</li>
+                        <li>Real-time search powered by Elasticsearch</li>
                     </ul>
                     <div class="badges">
                         <span class="bdg">MySQL</span><span class="bdg">Elasticsearch</span><span
@@ -1708,7 +1803,7 @@
                                 B.Tech — Computer Science & Engineering
                             </div>
                             <div class="edu-det">
-                                Dnyanshree Institute, Satara | 2019 – 2023
+                                Dnyanshree Institute of Engineering and Technology, Satara | 2019 – 2023
                             </div>
                             <div class="edu-cgpa">
                                 CGPA: 8.6 / 10 · First Class with Distinction
@@ -1728,8 +1823,13 @@
                             </div>
                         </div>
                         <div class="intern-desc-modern">
-                            Built Inventory Management System with data cleaning using
-                            Pandas and analytics visualizations using Matplotlib.
+
+                            <li>Developed an Inventory Management System using Python.</li>
+                            <li>Performed data analysis on 10M+ records using Pandas.</li>
+                            <li>Created data visualizations with Matplotlib for business insights.</li>
+                            <li>Built a Breast Cancer Detection model using Machine Learning.</li>
+                            <li>Achieved accurate classification using data preprocessing and model evaluation.</li>
+
                         </div>
                     </div>
                     <div class="intern-card-modern">
@@ -1738,15 +1838,19 @@
                                 <i class="fab fa-java java-logo-card"></i>
                             </div>
                             <div>
-                                <div class="intern-title">FullStack Java</div>
+                                <div class="intern-title">FullStack Java Certification</div>
                                 <div class="intern-org">
-                                    Giri's Tech Hub · Dec 2023 – 2024
+                                    Giri's Tech Hub · Jan 2024 – 2025
                                 </div>
                             </div>
                         </div>
                         <div class="intern-desc-modern">
-                            Built responsive web apps with HTML, CSS, Bootstrap. Implemented
-                            MySQL CRUD operations and Spring Boot fundamentals.
+
+                            <li>Built full-stack applications using Java, Spring Boot, React, and MySQL.</li>
+                            <li>Created responsive UIs with HTML, CSS, JavaScript, and Bootstrap.</li>
+                            <li>Developed Movie Recommendation, School Management, and E-commerce projects.</li>
+                            <li>Designed REST APIs and implemented secure CRUD operations.</li>
+
                         </div>
                     </div>
                 </div>
@@ -1807,7 +1911,8 @@
                     </a>
                 </div>
                 <div class="resume-btn-wrapper">
-                    <a href="#" class="resume-glow"><i class="fas fa-file-alt"></i> Download Resume
+                    <a href="https://drive.google.com/file/d/1IId7wZ09S2RWYNRSrg58ihTAJuBH4xa0/view?usp=sharing"
+                        class="resume-glow"><i class="fas fa-file-alt"></i> Download Resume
                         <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
@@ -1842,7 +1947,7 @@
     <script>
         // ===== NAVBAR: burger toggle + close on link click + active link =====
         const navBurger = document.getElementById('navBurger');
-        const navLinks  = document.getElementById('navLinks');
+        const navLinks = document.getElementById('navLinks');
         const navAnchors = navLinks.querySelectorAll('a');
 
         // Toggle mobile drawer
@@ -1884,10 +1989,10 @@
 
         // Existing site scripts (typewriter, stats, planets, skills, stars) - preserve exactly
         const roles = [
-            "Spring Boot Specialist",
-            "REST API Engineer",
+            "Software Engineer",
+            "Java Full Stack Developer",
             "Backend Architect",
-            "Kafka & WebSocket Dev",
+            "REST API Engineer",
         ];
         let ri = 0,
             ci = 0,
@@ -1929,25 +2034,52 @@
             { label: "AWS", color: "#ec4899,#9d174d", dur: 22, size: 42 },
             { label: "JWT Auth", color: "#14b8a6,#0f766e", dur: 24, size: 40 },
             { label: "REST API", color: "#6366f1,#3730a3", dur: 26, size: 40 },
-            { label: "Elasticsearch", color: "#22a6b3,#0e5a66", dur: 28, size: 40 },
+            { label: "Spring AI", color: "#22a6b3,#0e5a66", dur: 28, size: 40 },
         ];
-        const minRadius = 24,
-            maxRadius = 84,
-            stepRad = (maxRadius - minRadius) / (planetsData.length - 1);
         const solarContainer = document.getElementById("solarW");
         document.querySelectorAll(".orbit").forEach((o) => o.remove());
-        planetsData.forEach((p, idx) => {
-            const rp = minRadius + stepRad * idx;
-            const ring = document.createElement("div");
-            ring.className = "orbit";
-            ring.style.cssText = `width:${rp}%; height:${rp}%; animation-duration:${p.dur}s; animation-delay:${-(idx * 0.6)}s; border:1.5px dashed rgba(0,210,255,0.45);`;
-            const planetDiv = document.createElement("div");
-            planetDiv.className = "planet";
-            const sz = p.size;
-            planetDiv.style.cssText = `width:${sz}px; height:${sz}px; top:-${sz / 2}px; background:radial-gradient(circle at 35% 32%, ${p.color}); animation-duration:${p.dur}s; animation-delay:${-(idx * 0.6)}s; font-weight:800; font-size:${idx === 0 ? "0.6rem" : "0.5rem"}; box-shadow:0 0 10px rgba(0,212,255,0.6);`;
-            planetDiv.textContent = p.label;
-            ring.appendChild(planetDiv);
-            solarContainer.appendChild(ring);
+
+        function buildOrbits() {
+            document.querySelectorAll(".orbit").forEach((o) => o.remove());
+            // Use the smaller dimension to guarantee a square base — prevents oval rings
+            const containerPx = Math.min(solarContainer.offsetWidth, solarContainer.offsetHeight);
+            const isTiny = containerPx < 340;
+            // Sun radius in px (half of sun element width)
+            const sunPx = isTiny ? 36 : (containerPx <= 380 ? 40 : 42.5);
+            // Outermost ring should leave a small margin from the container edge
+            const margin = isTiny ? 8 : 12;
+            const outerR = containerPx / 2 - margin;
+            // Equal step between ring radii in px
+            const step = (outerR - sunPx - 10) / (planetsData.length - 1);
+
+            planetsData.forEach((p, idx) => {
+                const ringRadiusPx = sunPx + 10 + step * idx;
+                const ringDiamPx = Math.round(ringRadiusPx * 2);
+                const ring = document.createElement("div");
+                ring.className = "orbit";
+                // Use explicit px for both width AND height — percentage heights can go oval
+                // if container's rendered height differs even 1px from its width
+                ring.style.cssText = `width:${ringDiamPx}px; height:${ringDiamPx}px; animation-duration:${p.dur}s; animation-delay:${-(idx * 0.6)}s; border:1.5px dashed rgba(0,210,255,0.45);`;
+
+                const planetDiv = document.createElement("div");
+                planetDiv.className = "planet";
+                // Scale planet size proportionally on tiny screens
+                const scale = isTiny ? 0.72 : (containerPx <= 400 ? 0.82 : 1);
+                const sz = Math.round(p.size * scale);
+                planetDiv.style.cssText = `width:${sz}px; height:${sz}px; top:-${sz / 2}px; background:radial-gradient(circle at 35% 32%, ${p.color}); animation-duration:${p.dur}s; animation-delay:${-(idx * 0.6)}s; font-weight:800; font-size:${isTiny ? "0.38rem" : (idx === 0 ? "0.6rem" : "0.5rem")}; box-shadow:0 0 10px rgba(0,212,255,0.6);`;
+                planetDiv.textContent = p.label;
+                ring.appendChild(planetDiv);
+                solarContainer.appendChild(ring);
+            });
+        }
+
+        buildOrbits();
+
+        // Rebuild on resize to keep equal spacing at all widths
+        let _solarResizeTO;
+        window.addEventListener("resize", () => {
+            clearTimeout(_solarResizeTO);
+            _solarResizeTO = setTimeout(buildOrbits, 120);
         });
 
         const skillSet = [
@@ -2352,12 +2484,12 @@
         window.addEventListener("contextmenu", (e) => {
             if (isHitAstronaut(e.clientX, e.clientY)) e.preventDefault();
         });
-        window.addEventListener("mousedown",  onPointerDown);
-        window.addEventListener("mousemove",  onPointerMove);
-        window.addEventListener("mouseup",    onPointerUp);
+        window.addEventListener("mousedown", onPointerDown);
+        window.addEventListener("mousemove", onPointerMove);
+        window.addEventListener("mouseup", onPointerUp);
         window.addEventListener("touchstart", onPointerDown, { passive: true });
-        window.addEventListener("touchmove",  onPointerMove, { passive: false });
-        window.addEventListener("touchend",   onPointerUp);
+        window.addEventListener("touchmove", onPointerMove, { passive: false });
+        window.addEventListener("touchend", onPointerUp);
 
         // updatePhysics — smooth, slow drift with natural bounces
         function updatePhysics() {
